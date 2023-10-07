@@ -1,0 +1,17 @@
+---
+title: "smt201LibyaProject"
+---
+
+# Website in progress...
+
+Thank you for checking this out.
+
+Condolences to the victims of the Libyan flood.
+
+## default things below
+
+This is a Quarto website. To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+```{r}
+1 + 1
+```
