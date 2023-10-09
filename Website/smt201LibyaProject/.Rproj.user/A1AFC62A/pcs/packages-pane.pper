@@ -1,7 +1,0 @@
-{
-    "installOptions": {
-        "installFromRepository": true,
-        "libraryPath": "C:/Users/User/Documents/SMU Semesters/Y2-1-1 Sophomore Term 1/SMT201 GIS for Urban Planning/GIS project/GIS proj Github/Website/smt201LibyaProject/renv/library/R-4.2/x86_64-w64-mingw32",
-        "installDependencies": true
-    }
-}
