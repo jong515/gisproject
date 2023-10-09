@@ -2,8 +2,7 @@
 title: "About"
 ---
 
-About this site
-
-```{r}
-1 + 1
-```
+About Us:
+Goh Shao Hsuen
+Martyn Tok
+Savannah Koh
