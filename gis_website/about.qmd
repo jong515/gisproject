@@ -3,15 +3,11 @@ title: "About"
 ---
 
 About Us:
-<<<<<<< HEAD
 
 Goh Shao Hsuen
 
 Martyn Tok
 
 Savannah Koh
-=======
-Goh Shao Hsuen
-Martyn Tok
-Savannah Koh
->>>>>>> b0ee2fafe869de13b27cfbdbe19107c0c8af396a
+
+
