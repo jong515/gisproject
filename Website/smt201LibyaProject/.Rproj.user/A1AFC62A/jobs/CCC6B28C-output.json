@@ -1,3 +1,0 @@
-[2,"\n"]
-[1,"Error in loadNamespace(x) : there is no package called 'rmarkdown'\r\nCalls: loadNamespace -> withRestarts -> withOneRestart -> doWithOneRestart\r\nExecution halted\r\n"]
-[1,"\nR installation:\n  Version: 4.2.1\n  Path: C:/PROGRA~1/R/R-42~1.1\n  LibPaths:\n    - C:/Users/User/Documents/SMU Semesters/Y2-1-1 Sophomore Term 1/SMT201 GIS for Urban Planning/GIS project/GIS proj Github/Website/smt201LibyaProject/renv/library/R-4.2/x86_64-w64-mingw32\n    - C:/Program Files/R/R-4.2.1/library\n  knitr: (None)\n  rmarkdown: (None)\n\nThe rmarkdown package is not available in this R installation.\nInstall with install.packages(\"rmarkdown\")\n\n"]
