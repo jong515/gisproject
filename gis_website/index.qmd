@@ -1,7 +1,9 @@
 ---
-title: "Gis Project"
+title: "GIS Project"
 ---
+
+## Overview
 
 This website comprises an overview of how we wish to tackle the issue of GIS-Based Accessibility Analysis and Mapping of Emergency and Medical Services!
 
-We will be using the recent flooding in Libya as our case study.
+We will be using the recent flooding in Libya as our case study, and map out the accessibility for the future.   
