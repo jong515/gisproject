@@ -1,0 +1,19 @@
+---
+title: "Methodology"
+---
+
+# Summary Flow Chart
+
+# Coordinate Reference System
+
+# Data Download
+
+# Data Preparation
+
+# Before Scenario
+
+# During Scenario
+
+# After Scenario
+
+# Resupply to Shelters and Hospitals

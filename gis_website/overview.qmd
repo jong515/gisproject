@@ -1,0 +1,21 @@
+---
+title: "Overview"
+---
+
+## Summary
+
+Our project\'s objectives are to utilise what we have learnt to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in the case study in Derna, Libya, due to the recent flooding in September 2023.
+
+The main motivation was how the increased occurrence and intensity of natural disasters in recent years will require us to invest in new methods to mitigate their adverse effects, as well as develop more effective disaster planning and response frameworks. It is important for us to recognise that at the different phases of a disaster, each will have its own distinct and specific community needs.
+
+We found that strategically pre-planning evacuation routes to access emergency centres before and medical services during a flood can play a pivotal role in substantially mitigating casualties. Moreover, identifying pathways to essential supplies in the aftermath of a flood not only fosters the city's restoration but also optimises resource allocation during critical times of crisis.
+
+Hence, our aim was to determine the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood, namely the before, during and after scenario of the entire flood event.
+
+Our findings indicated what were the best paths to evacuate in each neighbourhood before the flood would occur, based on prior warnings 6 hours before.
+
+Next, we found the best evacuation routes to the nearest dry road and shelter, for those who were unable to evacuate in time during the flood itself.
+
+Finally, as supplies in the shelters were being used up and the supplies back in the flooded neighbourhoods began to perish, we found the most efficient resupply routes back to the neighbourhoods.
+
+We hope that these findings would serve as a good indication of network analysis for the various stages of a disaster scenario for Derna, in the event of another crisis.

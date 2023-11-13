@@ -2,12 +2,25 @@ project:
   type: website
 
 website:
-  title: "gis project"
+  title: "Group 4"
   navbar:
-    left:
+    left: 
+      - href: overview.qmd
+        text: Overview
+      - href: proposal.qmd
+        text: Proposal
+      - href: methodology.qmd
+        text: Methodology
+      - href: results.qmd
+        text: Results and Discussion
+      - href: lessons.qmd
+        text: Lessons Learnt
+    right:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About
+        
 
 format:
   html:
