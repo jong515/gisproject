@@ -4,7 +4,7 @@ title: "Overview"
 
 ## Summary
 
-Our project\'s objectives are to utilise what we have learnt to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in the case study in Derna, Libya, due to the recent flooding in September 2023.
+Our project's objectives are to utilise what we have learnt to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in the case study in Derna, Libya, due to the recent flooding in September 2023.
 
 The main motivation was how the increased occurrence and intensity of natural disasters in recent years will require us to invest in new methods to mitigate their adverse effects, as well as develop more effective disaster planning and response frameworks. It is important for us to recognise that at the different phases of a disaster, each will have its own distinct and specific community needs.
 
