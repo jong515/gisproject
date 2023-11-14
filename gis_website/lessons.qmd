@@ -3,3 +3,5 @@ title: "Lessons"
 ---
 
 ## Lessons Learnt
+
+Data cleaning is important

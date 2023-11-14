@@ -24,7 +24,7 @@ website:
 
 format:
   html:
-    theme: solar
+    theme: yeti
     css: styles.css
     toc: true
 
