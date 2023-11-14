@@ -2,7 +2,11 @@
 title: "Overview"
 ---
 
-## Summary
+## Introduction
+
+On the 10th of September 2023, Storm Daniel hit the City of Derna, Libya. This caused a massive flood due to the destruction of two dams, displacing tens of thousands of people. The flood devastated the city centre and destroyed huge swathes of homes, buildings and other infrastructure in the area. According to UNICEF, the natural disaster also affected health, education and safe water supply services. This created a massive humanitarian crisis for the city, with disaster relief efforts underway by various organisations.
+
+## Project Summary
 
 Our project's objectives are to utilise what we have learnt to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in the case study in Derna, Libya, due to the recent flooding in September 2023.
 

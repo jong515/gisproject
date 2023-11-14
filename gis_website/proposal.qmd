@@ -2,11 +2,25 @@
 title: "Proposal"
 ---
 
-## Motivation
+## Objectives and Motivation
 
-## Objective
+With the number of natural disasters increasing in intensity and frequency, it is important to invest in ways to mitigate the adverse effects and develop appropriate disaster planning and response frameworks to better manage similar or more catastrophic occurrences in the future. Thus, our objective is to utilise what we have learned, Geographic Information technologies, to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in this case study in Derna, Libya. 
+
+In a city ravaged by natural disasters, it is also crucial to recognize that different phases of an event entail distinct and specific community needs. Strategically pre-planning evacuation routes to access emergency centresbefore and medical services during a flood can play a pivotal role in substantially mitigating casualties. Moreover, identifying pathways to essential supplies in the aftermath of a flood not only fosters the city's restoration but also optimises resource allocation during critical times of crisis.
+
+Therefore, our project -- FloodSafe -- aims to determine the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood. We presented our results and analysis in three flood scenarios: Before, During and After.
 
 ## Data
+
+-   Copernicus EMSR roads (with degree of damage)
+
+-   OSM Roads (1 Sep 23)
+
+-   OSM Roads, Landuse, Points of Interest and Places of Worship, transport_a (23 Oct 23)
+
+-   Flood Extent from HumData Exchange portal
+
+-   Derna City Hexagon (for clipping of datapoints)
 
 ## Scope
 

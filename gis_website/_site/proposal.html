@@ -35,10 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,6 +82,10 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
     <a class="nav-link" href="./overview.html" rel="" target="">
  <span class="menu-text">Overview</span></a>
   </li>  
@@ -104,10 +108,6 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
-  </li>  
-  <li class="nav-item">
     <a class="nav-link" href="./about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
@@ -127,8 +127,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#objective" id="toc-objective" class="nav-link" data-scroll-target="#objective">Objective</a></li>
+  <li><a href="#objectives-and-motivation" id="toc-objectives-and-motivation" class="nav-link active" data-scroll-target="#objectives-and-motivation">Objectives and Motivation</a></li>
   <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
   <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope">Scope</a></li>
   <li><a href="#project-timeline" id="toc-project-timeline" class="nav-link" data-scroll-target="#project-timeline">Project Timeline</a></li>
@@ -155,14 +154,21 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-</section>
-<section id="objective" class="level2">
-<h2 class="anchored" data-anchor-id="objective">Objective</h2>
+<section id="objectives-and-motivation" class="level2">
+<h2 class="anchored" data-anchor-id="objectives-and-motivation">Objectives and Motivation</h2>
+<p>With the number of natural disasters increasing in intensity and frequency, it is important to invest in ways to mitigate the adverse effects and develop appropriate disaster planning and response frameworks to better manage similar or more catastrophic occurrences in the future. Thus, our objective is to utilise what we have learned, Geographic Information technologies, to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in this case study in Derna, Libya.&nbsp;</p>
+<p>In a city ravaged by natural disasters, it is also crucial to recognize that different phases of an event entail distinct and specific community needs. Strategically pre-planning evacuation routes to access emergency centresbefore and medical services during a flood can play a pivotal role in substantially mitigating casualties. Moreover, identifying pathways to essential supplies in the aftermath of a flood not only fosters the city’s restoration but also optimises resource allocation during critical times of crisis.</p>
+<p>Therefore, our project – FloodSafe – aims to determine the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood. We presented our results and analysis in three flood scenarios: Before, During and After.</p>
 </section>
 <section id="data" class="level2">
 <h2 class="anchored" data-anchor-id="data">Data</h2>
+<ul>
+<li><p>Copernicus EMSR roads (with degree of damage)</p></li>
+<li><p>OSM Roads (1 Sep 23)</p></li>
+<li><p>OSM Roads, Landuse, Points of Interest and Places of Worship, transport_a (23 Oct 23)</p></li>
+<li><p>Flood Extent from HumData Exchange portal</p></li>
+<li><p>Derna City Hexagon (for clipping of datapoints)</p></li>
+</ul>
 </section>
 <section id="scope" class="level2">
 <h2 class="anchored" data-anchor-id="scope">Scope</h2>

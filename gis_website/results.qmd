@@ -4,6 +4,8 @@ title: "Results and Discussion"
 
 ## Analysis
 
+![](images/Water Resupply Last.png)
+
 ## Future Work
 
 ## Recommendations

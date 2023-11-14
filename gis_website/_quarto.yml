@@ -5,6 +5,8 @@ website:
   title: "Group 4"
   navbar:
     left: 
+      - href: index.qmd
+        text: Home
       - href: overview.qmd
         text: Overview
       - href: proposal.qmd
@@ -16,8 +18,6 @@ website:
       - href: lessons.qmd
         text: Lessons Learnt
     right:
-      - href: index.qmd
-        text: Home
       - href: about.qmd
         text: About
         

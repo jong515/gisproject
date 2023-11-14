@@ -39,7 +39,7 @@
     "href": "overview.html",
     "title": "Overview",
     "section": "",
-    "text": "Our project’s objectives are to utilise what we have learnt to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in the case study in Derna, Libya, due to the recent flooding in September 2023.\nThe main motivation was how the increased occurrence and intensity of natural disasters in recent years will require us to invest in new methods to mitigate their adverse effects, as well as develop more effective disaster planning and response frameworks. It is important for us to recognise that at the different phases of a disaster, each will have its own distinct and specific community needs.\nWe found that strategically pre-planning evacuation routes to access emergency centres before and medical services during a flood can play a pivotal role in substantially mitigating casualties. Moreover, identifying pathways to essential supplies in the aftermath of a flood not only fosters the city’s restoration but also optimises resource allocation during critical times of crisis.\nHence, our aim was to determine the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood, namely the before, during and after scenario of the entire flood event.\nOur findings indicated what were the best paths to evacuate in each neighbourhood before the flood would occur, based on prior warnings 6 hours before.\nNext, we found the best evacuation routes to the nearest dry road and shelter, for those who were unable to evacuate in time during the flood itself.\nFinally, as supplies in the shelters were being used up and the supplies back in the flooded neighbourhoods began to perish, we found the most efficient resupply routes back to the neighbourhoods.\nWe hope that these findings would serve as a good indication of network analysis for the various stages of a disaster scenario for Derna, in the event of another crisis."
+    "text": "On the 10th of September 2023, Storm Daniel hit the City of Derna, Libya. This caused a massive flood due to the destruction of two dams, displacing tens of thousands of people. The flood devastated the city centre and destroyed huge swathes of homes, buildings and other infrastructure in the area. According to UNICEF, the natural disaster also affected health, education and safe water supply services. This created a massive humanitarian crisis for the city, with disaster relief efforts underway by various organisations."
   },
   {
     "objectID": "overview.html#overview",
@@ -67,7 +67,7 @@
     "href": "proposal.html#data",
     "title": "Proposal",
     "section": "Data",
-    "text": "Data"
+    "text": "Data\n\nCopernicus EMSR roads (with degree of damage)\nOSM Roads (1 Sep 23)\nOSM Roads, Landuse, Points of Interest and Places of Worship, transport_a (23 Oct 23)\nFlood Extent from HumData Exchange portal\nDerna City Hexagon (for clipping of datapoints)"
   },
   {
     "objectID": "proposal.html#scope",
@@ -117,5 +117,33 @@
     "title": "Lessons",
     "section": "",
     "text": "Our group realized that data cleaning is an extremely important step in analysis, as it would cause many problems down the line as we start working with the data and realizing it would be too messy.\nFor our approach, we had many trial and error attempts while figuring out what we were going to do. We initially thought of using the Iso-Area function to flag the areas that were closer to or further from the shelters, but realized the range was too small to be of significant concern (e.g. within 1.5km or within a few minutes drive). We also found that starting points that are close to shelters may be misleading as the closest shelter may not have the capacity to contain evacuees from there.\nWith regards to finding existing functions to use for our analysis, we had 2 changes.\n\nWe tried to use batch processing shortest path (point to layer), but later realized OD matrix is more efficient as two of our machines were stuck at the batch process.\nBefore we found the functions ‘Line Intersections’ and ‘Polygons to Lines’, we used the ‘Merge Vector Layer’ and ‘Merging Lines’ and had issues as the resulting output data was very dirty.\n\nThese changes allowed us to better use the different functions in the QGIS software, allowing us to have a more comprehensive understanding of the entire process."
+  },
+  {
+    "objectID": "overview.html#introduction",
+    "href": "overview.html#introduction",
+    "title": "Overview",
+    "section": "",
+    "text": "On the 10th of September 2023, Storm Daniel hit the City of Derna, Libya. This caused a massive flood due to the destruction of two dams, displacing tens of thousands of people. The flood devastated the city centre and destroyed huge swathes of homes, buildings and other infrastructure in the area. According to UNICEF, the natural disaster also affected health, education and safe water supply services. This created a massive humanitarian crisis for the city, with disaster relief efforts underway by various organisations."
+  },
+  {
+    "objectID": "overview.html#project-summary",
+    "href": "overview.html#project-summary",
+    "title": "Overview",
+    "section": "Project Summary",
+    "text": "Project Summary\nOur project’s objectives are to utilise what we have learnt to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in the case study in Derna, Libya, due to the recent flooding in September 2023.\nThe main motivation was how the increased occurrence and intensity of natural disasters in recent years will require us to invest in new methods to mitigate their adverse effects, as well as develop more effective disaster planning and response frameworks. It is important for us to recognise that at the different phases of a disaster, each will have its own distinct and specific community needs.\nWe found that strategically pre-planning evacuation routes to access emergency centres before and medical services during a flood can play a pivotal role in substantially mitigating casualties. Moreover, identifying pathways to essential supplies in the aftermath of a flood not only fosters the city’s restoration but also optimises resource allocation during critical times of crisis.\nHence, our aim was to determine the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood, namely the before, during and after scenario of the entire flood event.\nOur findings indicated what were the best paths to evacuate in each neighbourhood before the flood would occur, based on prior warnings 6 hours before.\nNext, we found the best evacuation routes to the nearest dry road and shelter, for those who were unable to evacuate in time during the flood itself.\nFinally, as supplies in the shelters were being used up and the supplies back in the flooded neighbourhoods began to perish, we found the most efficient resupply routes back to the neighbourhoods.\nWe hope that these findings would serve as a good indication of network analysis for the various stages of a disaster scenario for Derna, in the event of another crisis."
+  },
+  {
+    "objectID": "proposal.html",
+    "href": "proposal.html",
+    "title": "Proposal",
+    "section": "",
+    "text": "With the number of natural disasters increasing in intensity and frequency, it is important to invest in ways to mitigate the adverse effects and develop appropriate disaster planning and response frameworks to better manage similar or more catastrophic occurrences in the future. Thus, our objective is to utilise what we have learned, Geographic Information technologies, to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in this case study in Derna, Libya. \nIn a city ravaged by natural disasters, it is also crucial to recognize that different phases of an event entail distinct and specific community needs. Strategically pre-planning evacuation routes to access emergency centresbefore and medical services during a flood can play a pivotal role in substantially mitigating casualties. Moreover, identifying pathways to essential supplies in the aftermath of a flood not only fosters the city’s restoration but also optimises resource allocation during critical times of crisis.\nTherefore, our project – FloodSafe – aims to determine the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood. We presented our results and analysis in three flood scenarios: Before, During and After."
+  },
+  {
+    "objectID": "proposal.html#objectives-and-motivation",
+    "href": "proposal.html#objectives-and-motivation",
+    "title": "Proposal",
+    "section": "",
+    "text": "With the number of natural disasters increasing in intensity and frequency, it is important to invest in ways to mitigate the adverse effects and develop appropriate disaster planning and response frameworks to better manage similar or more catastrophic occurrences in the future. Thus, our objective is to utilise what we have learned, Geographic Information technologies, to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in this case study in Derna, Libya. \nIn a city ravaged by natural disasters, it is also crucial to recognize that different phases of an event entail distinct and specific community needs. Strategically pre-planning evacuation routes to access emergency centresbefore and medical services during a flood can play a pivotal role in substantially mitigating casualties. Moreover, identifying pathways to essential supplies in the aftermath of a flood not only fosters the city’s restoration but also optimises resource allocation during critical times of crisis.\nTherefore, our project – FloodSafe – aims to determine the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood. We presented our results and analysis in three flood scenarios: Before, During and After."
   }
 ]
