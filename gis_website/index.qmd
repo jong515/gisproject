@@ -4,6 +4,10 @@ title: "FloodSafe: Derna, Libya"
 
 ## Welcome
 
-This website comprises an overview of how we wish to tackle the issue of GIS-Based Accessibility Analysis and Mapping of Emergency and Medical Services!
+This website comprises an overview of how we wish to tackle the issue of GIS-Based Accessibility Analysis and Mapping of Emergency and Medical Services.
 
 We will be using the recent flooding in Libya as our case study, and map out the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood.
+
+Here is a quick summary of our project via our townhall presentation poster:
+
+![](images/Poster.png)
