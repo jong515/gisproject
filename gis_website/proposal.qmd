@@ -54,4 +54,6 @@ Prepare shelters data by classification, hospitals data, residential neighbourho
 
 ## Project Timeline
 
-![](images/Gantt chart project schedule - Gantt Chart_removed_page-0001-01.jpg)
+This is our project [Gantt Chart](https://docs.google.com/spreadsheets/d/1cNZMI0ji5Kz2z733CqgFsTvuznGKZaTREHJSaLi43y4/edit#gid=1115838130) and timeline of the project.
+
+![](images/Page1.jpg)
