@@ -88,7 +88,7 @@
     "href": "methodology.html",
     "title": "Methodology",
     "section": "",
-    "text": "Summary Flow Chart\n\n\nCoordinate Reference System\n\n\nData Download\n\n\nData Preparation\n\n\nBefore Scenario\n\n\nDuring Scenario\n\n\nAfter Scenario\n\n\nResupply to Shelters and Hospitals"
+    "text": "Summary Flow Chart\n\nWe chose to set our project CRS as EPSG:3197 as it is the CRS with the smallest extent that includes our study area.\n\n\nData Download\n\n\nData Preparation\n\n\nBefore Scenario\n\n\nDuring Scenario\n\n\nAfter Scenario\n\n\nResupply to Shelters and Hospitals"
   },
   {
     "objectID": "results.html#future-work",
@@ -145,5 +145,19 @@
     "title": "Proposal",
     "section": "",
     "text": "With the number of natural disasters increasing in intensity and frequency, it is important to invest in ways to mitigate the adverse effects and develop appropriate disaster planning and response frameworks to better manage similar or more catastrophic occurrences in the future. Thus, our objective is to utilise what we have learned, Geographic Information technologies, to conduct a GIS-based accessibility analysis and mapping of emergency evacuation centres and medical services in this case study in Derna, Libya. \nIn a city ravaged by natural disasters, it is also crucial to recognize that different phases of an event entail distinct and specific community needs. Strategically pre-planning evacuation routes to access emergency centresbefore and medical services during a flood can play a pivotal role in substantially mitigating casualties. Moreover, identifying pathways to essential supplies in the aftermath of a flood not only fosters the city’s restoration but also optimises resource allocation during critical times of crisis.\nTherefore, our project – FloodSafe – aims to determine the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood. We presented our results and analysis in three flood scenarios: Before, During and After."
+  },
+  {
+    "objectID": "proposal.html#data-used",
+    "href": "proposal.html#data-used",
+    "title": "Proposal",
+    "section": "Data Used",
+    "text": "Data Used\n\nCopernicus EMSR roads (with degree of damage)\nLibya OSM Roads (1 Sep 23)\nLibya OSM Roads, landuse_a, Points of Interest and Places of Worship, transport_a (23 Oct 23)\nFlood Extent from HumData Exchange portal\nHealth Facilities from HumData Exchange portal (Hospitals)\nSatellite data from OpenAerialMap\nDerna City Hexagon (for clipping of datapoints)"
+  },
+  {
+    "objectID": "proposal.html#scope-of-work",
+    "href": "proposal.html#scope-of-work",
+    "title": "Proposal",
+    "section": "Scope of Work",
+    "text": "Scope of Work\nPrepare shelters data by classification, hospitals data, residential neighbourhoods in flood extent and OSM roads.\n\nBefore Scenario\n\nUse 1 September 2023 OSM roads, find shelters outside flood extent, and use OD Matrix tool from residential centroids to said shelters.\nUse python pandas to assign up to 10 neighbourhood centroids to each shelter, starting from the furthest one.\n\n\n\nDuring Scenario\n\nFind suitable roads outside flood extent, find start points from intersections with the flood extent that are connected to road networks.\nExtract suitable shelters and hospitals outside the flood extent, use OD Matrix and SQL to form evacuation routes and shortest paths from start points to suitable shelters and hospitals.\n\n\n\nAfter Scenario\n\nFind suitable roads and create airport centroids.\nFind airports and desalination plants as the starting points and residential neighbourhoods, hospitals and shelters(outside flood extent) as end points.\nSelect a midpoint on the previous shortest path on EMSR road and find shortest path to that from our start points using OSM roads.\nFind shortest path to our endpoints from said midpoint to get the routes."
   }
 ]

@@ -128,8 +128,13 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#objectives-and-motivation" id="toc-objectives-and-motivation" class="nav-link active" data-scroll-target="#objectives-and-motivation">Objectives and Motivation</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
-  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope">Scope</a></li>
+  <li><a href="#data-used" id="toc-data-used" class="nav-link" data-scroll-target="#data-used">Data Used</a></li>
+  <li><a href="#scope-of-work" id="toc-scope-of-work" class="nav-link" data-scroll-target="#scope-of-work">Scope of Work</a>
+  <ul class="collapse">
+  <li><a href="#before-scenario" id="toc-before-scenario" class="nav-link" data-scroll-target="#before-scenario">Before Scenario</a></li>
+  <li><a href="#during-scenario" id="toc-during-scenario" class="nav-link" data-scroll-target="#during-scenario">During Scenario</a></li>
+  <li><a href="#after-scenario" id="toc-after-scenario" class="nav-link" data-scroll-target="#after-scenario">After Scenario</a></li>
+  </ul></li>
   <li><a href="#project-timeline" id="toc-project-timeline" class="nav-link" data-scroll-target="#project-timeline">Project Timeline</a></li>
   </ul>
 </nav>
@@ -160,21 +165,48 @@ ul.task-list li input[type="checkbox"] {
 <p>In a city ravaged by natural disasters, it is also crucial to recognize that different phases of an event entail distinct and specific community needs. Strategically pre-planning evacuation routes to access emergency centresbefore and medical services during a flood can play a pivotal role in substantially mitigating casualties. Moreover, identifying pathways to essential supplies in the aftermath of a flood not only fosters the city’s restoration but also optimises resource allocation during critical times of crisis.</p>
 <p>Therefore, our project – FloodSafe – aims to determine the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood. We presented our results and analysis in three flood scenarios: Before, During and After.</p>
 </section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
+<section id="data-used" class="level2">
+<h2 class="anchored" data-anchor-id="data-used">Data Used</h2>
 <ul>
 <li><p>Copernicus EMSR roads (with degree of damage)</p></li>
-<li><p>OSM Roads (1 Sep 23)</p></li>
-<li><p>OSM Roads, Landuse, Points of Interest and Places of Worship, transport_a (23 Oct 23)</p></li>
+<li><p>Libya OSM Roads (1 Sep 23)</p></li>
+<li><p>Libya OSM Roads, landuse_a, Points of Interest and Places of Worship, transport_a (23 Oct 23)</p></li>
 <li><p>Flood Extent from HumData Exchange portal</p></li>
+<li><p>Health Facilities from HumData Exchange portal (Hospitals)</p></li>
+<li><p>Satellite data from OpenAerialMap</p></li>
 <li><p>Derna City Hexagon (for clipping of datapoints)</p></li>
 </ul>
 </section>
-<section id="scope" class="level2">
-<h2 class="anchored" data-anchor-id="scope">Scope</h2>
+<section id="scope-of-work" class="level2">
+<h2 class="anchored" data-anchor-id="scope-of-work">Scope of Work</h2>
+<p>Prepare shelters data by classification, hospitals data, residential neighbourhoods in flood extent and OSM roads.</p>
+<section id="before-scenario" class="level3">
+<h3 class="anchored" data-anchor-id="before-scenario">Before Scenario</h3>
+<ol type="1">
+<li><p>Use 1 September 2023 OSM roads, find shelters outside flood extent, and use OD Matrix tool from residential centroids to said shelters.</p></li>
+<li><p>Use python pandas to assign up to 10 neighbourhood centroids to each shelter, starting from the furthest one.</p></li>
+</ol>
+</section>
+<section id="during-scenario" class="level3">
+<h3 class="anchored" data-anchor-id="during-scenario">During Scenario</h3>
+<ol type="1">
+<li><p>Find suitable roads outside flood extent, find start points from intersections with the flood extent that are connected to road networks.</p></li>
+<li><p>Extract suitable shelters and hospitals outside the flood extent, use OD Matrix and SQL to form evacuation routes and shortest paths from start points to suitable shelters and hospitals.</p></li>
+</ol>
+</section>
+<section id="after-scenario" class="level3">
+<h3 class="anchored" data-anchor-id="after-scenario">After Scenario</h3>
+<ol type="1">
+<li><p>Find suitable roads and create airport centroids.</p></li>
+<li><p>Find airports and desalination plants as the starting points and residential neighbourhoods, hospitals and shelters(outside flood extent) as end points.</p></li>
+<li><p>Select a midpoint on the previous shortest path on EMSR road and find shortest path to that from our start points using OSM roads.</p></li>
+<li><p>Find shortest path to our endpoints from said midpoint to get the routes.</p></li>
+</ol>
+</section>
 </section>
 <section id="project-timeline" class="level2">
 <h2 class="anchored" data-anchor-id="project-timeline">Project Timeline</h2>
+<p><img src="images/Gantt chart project schedule - Gantt Chart_removed_page-0001-01.jpg" class="img-fluid"></p>
 
 
 </section>

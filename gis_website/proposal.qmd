@@ -10,18 +10,48 @@ In a city ravaged by natural disasters, it is also crucial to recognize that dif
 
 Therefore, our project -- FloodSafe -- aims to determine the most efficient paths to get people to safety, medical care, and supplies in different stages of the flood. We presented our results and analysis in three flood scenarios: Before, During and After.
 
-## Data
+## Data Used
 
 -   Copernicus EMSR roads (with degree of damage)
 
--   OSM Roads (1 Sep 23)
+-   Libya OSM Roads (1 Sep 23)
 
--   OSM Roads, Landuse, Points of Interest and Places of Worship, transport_a (23 Oct 23)
+-   Libya OSM Roads, landuse_a, Points of Interest and Places of Worship, transport_a (23 Oct 23)
 
 -   Flood Extent from HumData Exchange portal
 
+-   Health Facilities from HumData Exchange portal (Hospitals)
+
+-   Satellite data from OpenAerialMap
+
 -   Derna City Hexagon (for clipping of datapoints)
 
-## Scope
+## Scope of Work
+
+Prepare shelters data by classification, hospitals data, residential neighbourhoods in flood extent and OSM roads.
+
+### Before Scenario
+
+1.  Use 1 September 2023 OSM roads, find shelters outside flood extent, and use OD Matrix tool from residential centroids to said shelters.
+
+2.  Use python pandas to assign up to 10 neighbourhood centroids to each shelter, starting from the furthest one.
+
+### During Scenario
+
+1.  Find suitable roads outside flood extent, find start points from intersections with the flood extent that are connected to road networks.
+
+2.  Extract suitable shelters and hospitals outside the flood extent, use OD Matrix and SQL to form evacuation routes and shortest paths from start points to suitable shelters and hospitals.
+
+### After Scenario
+
+1.  Find suitable roads and create airport centroids.
+
+2.  Find airports and desalination plants as the starting points and residential neighbourhoods, hospitals and shelters(outside flood extent) as end points.
+
+3.  Select a midpoint on the previous shortest path on EMSR road and find shortest path to that from our start points using OSM roads.
+
+4.  Find shortest path to our endpoints from said midpoint to get the routes.
 
 ## Project Timeline
+
+![](images/Gantt chart project schedule - Gantt Chart_removed_page-0001-01.jpg)

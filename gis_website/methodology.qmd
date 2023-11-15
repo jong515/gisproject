@@ -4,7 +4,9 @@ title: "Methodology"
 
 # Summary Flow Chart
 
-# Coordinate Reference System
+![](images/Methodology Flow Chart.png)
+
+We chose to set our project CRS as EPSG:3197 as it is the CRS with the smallest extent that includes our study area.
 
 # Data Download
 
