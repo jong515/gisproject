@@ -242,7 +242,7 @@
     "href": "after.html",
     "title": "After Flood Scenario",
     "section": "",
-    "text": "We will refer to the OpenStreetMap as a gauge of where the locations are outside of the hexagon layer. \nSince the airports and the water plants are quite a distance away from the city, we will use the osm roads to map out the shortest path they will take to a chosen location on the highways leading into the city. Afterwhich, we will use the EMSR GRA transportationL roads to map the shortest path from those locations to the flood neighbourhood centroids, since those roads are more accurate in terms of damage and usability.\n\n\nWe will use osm_transport_a(polygon),since the point files don’t have Martuba airport we will be using the polygons instead."
+    "text": "We will refer to the OpenStreetMap as a gauge of where the locations are outside of the hexagon layer. \nSince the airports and the water plants are quite a distance away from the city, we will use the osm roads to map out the shortest path they will take to a chosen location on the highways leading into the city. Afterwhich, we will use the EMSR GRA transportationL roads to map the shortest path from those locations to the flood neighbourhood centroids, since those roads are more accurate in terms of damage and usability."
   },
   {
     "objectID": "after.html#getting-airport-points",
@@ -250,5 +250,19 @@
     "title": "After Flood Scenario",
     "section": "",
     "text": "We will use osm_transport_a(polygon),since the point files don’t have Martuba airport we will be using the polygons instead."
+  },
+  {
+    "objectID": "after.html#getting-satellite-data-to-check-road-usability",
+    "href": "after.html#getting-satellite-data-to-check-road-usability",
+    "title": "After Flood Scenario",
+    "section": "Getting satellite data to check road usability",
+    "text": "Getting satellite data to check road usability\nWe will be using satellite data to compare with the EMSR GRAroads, to double check their usability in the flooded neighbourhoods.\nFrom the Open Aerial Map data, we will load in the layer and clip by extent. We will be using the hexagon layer of Derna as our overlay layer.\n\nThis will be the final product after clipping. We will name it 13_09_23.\nWe will classify the EMSR roads and compare their usability with the satellite data.\n\n\nFor the green damaged roads, we can see that the roads have been mostly covered and affected by the floods, presumably with the dirt and sand and other sediment from flooding. Hence, we will exclude them.\n\n\nFor the destroyed roads, we can see that they have been devastated by the flood, with most if not all of them being unusable and broken, due to the flooding and destruction. We will similarly exclude them.\n\nFor the possibly damaged roads, it can be seen that a majority are actually still usable, with a lot of cars and other vehicles such as trucks still being seen and used based on the data. The roads also appear to be quite clear of excessive dirt and sediment, so they are still drivable in this current situation. Hence, we will include and use them."
+  },
+  {
+    "objectID": "after.html#filter-out-usable-roads",
+    "href": "after.html#filter-out-usable-roads",
+    "title": "After Flood Scenario",
+    "section": "Filter out usable roads",
+    "text": "Filter out usable roads\nWe will filter out the non destroyed and damaged roads to be used.\nWe select all the NULL values, then in the field calculator we update the existing \"damage_gra\" field to replace the null with normal roads.\n\nSave the changes.\nWe select the non-damaged roads.\n\nWe extract and save these roads to use for the shortest path. The start point will be our previous end point.\n\n\nThe network of the shortest path to resupply the neighbourhoods will be as follows."
   }
 ]

@@ -8,59 +8,143 @@ We will refer to the OpenStreetMap as a gauge of where the locations are outside
 
 Since the airports and the water plants are quite a distance away from the city, we will use the osm roads to map out the shortest path they will take to a chosen location on the highways leading into the city. Afterwhich, we will use the EMSR GRA transportationL roads to map the shortest path from those locations to the flood neighbourhood centroids, since those roads are more accurate in terms of damage and usability.
 
-## Getting airport points
+# Getting airport points
 
 We will use osm_transport_a(polygon),since the point files don't have Martuba airport we will be using the polygons instead.
 
 ![](images/image78.png)
 
+Manually select Martuba and Bombah(ctrl+select these 2 polygons), then extract.
+
 ![](images/image128.png)
+
+Then find their centroids, we will use these as the starting point for airports, the other airport,Al Abraq, is too far for consideration.
 
 ![](images/image144.png)
 
 ![](images/image58.png)
 
+# Finding Roads to Derna from Airports
+
+Since the trucks will be using the highway to travel to the city, we will choose the point where the city crosses with the highway as our end point used to see how long the trucks will take to reach Derna using the shortest path function.
+
 ![](images/image149.jpg)
+
+Using shortest path(layer to point):
+
+End point will be 167138.713234,3624742.546023 \[EPSG:3197\]
 
 ![](images/image77.png)
 
 ![](images/image104.png)
 
+# Shortest Path to flooded neighbourhoods for logistical resupply
+
+From that midpoint, use the Shortest Path function to map out the shortest path using the EMSR GRA transportation road network, as that will show the best possible pathway for the resupplies to enter the flooded neighbourhoods to resupply, taking the degree of damage into consideration. It also shows possible bridges to cross the river, which osm does not include. Hence, we will use the EMSR GRA layer to map the best way to resupply to flooded areas as people return home.
+
+## Getting satellite data to check road usability
+
+We will be using satellite data to compare with the EMSR GRAroads, to double check their usability in the flooded neighbourhoods.
+
+From the Open Aerial Map data, we will load in the layer and clip by extent. We will be using the hexagon layer of Derna as our overlay layer.
+
 ![](images/image136.png)
+
+This will be the final product after clipping. We will name it 13_09_23.
+
+We will classify the EMSR roads and compare their usability with the satellite data.
 
 ![](images/image7.png)
 
 ![](images/image12.png)
 
+For the green damaged roads, we can see that the roads have been mostly covered and affected by the floods, presumably with the dirt and sand and other sediment from flooding. Hence, we will exclude them.
+
 ![](images/image5.png)
 
 ![](images/image112.png)
 
+For the destroyed roads, we can see that they have been devastated by the flood, with most if not all of them being unusable and broken, due to the flooding and destruction. We will similarly exclude them.
+
 ![](images/image88.png)
+
+For the possibly damaged roads, it can be seen that a majority are actually still usable, with a lot of cars and other vehicles such as trucks still being seen and used based on the data. The roads also appear to be quite clear of excessive dirt and sediment, so they are still drivable in this current situation. Hence, we will include and use them.
+
+## Filter out usable roads
+
+We will filter out the non destroyed and damaged roads to be used.
+
+We select all the NULL values, then in the field calculator we update the existing \"damage_gra\" field to replace the null with normal roads.
 
 ![](images/image155.png)
 
+Save the changes.
+
+We select the non-damaged roads.
+
 ![](images/image121.png)
+
+We extract and save these roads to use for the shortest path. The start point will be our previous end point.
 
 ![](images/image116.png)
 
 ![](images/image143.png)
 
+The network of the shortest path to resupply the neighbourhoods will be as follows.
+
+# Getting water plant points
+
+Next, we will map the shortest path for water trucks to bring in fresh water as the pipes will have been damaged during the flood. 
+
+For the Sousa water plant, extract out the waterworks point from the poi layer in osm. We will use google maps as a rough approximation of the Sousa desalination plant.
+
 ![](images/image14.png)
+
+We will extract out this water_works point as our Sousa plant.
+
+From our poi area(polygon), we also select out water_works by expression.
 
 ![](images/image34.png)
 
 ![](images/image27.png)
 
+We will use this as our Derna desalination plant. The UN stated that both these water plants were to be reactivated for water supply use, so we will map out the network of shortest paths to resupply water for the flooded neighbourhoods.
+
+We will extract out this specific selected polygon, after deselecting the others. We will use the centroid function to find the centroid point to map.
+
 ![](images/image17.png)
+
+We will merge these 2 water plant layers into one using the merge vector layers function. Ensure the project CRS is correct.
 
 ![](images/image99.png)
 
+# Finding road to Derna for Waterplants
+
+Next, we will use the shortest path function to map out the shortest path from the points into the city using the highway.
+
+We will select the point here as it is going towards the city and nearest to the Derna plant.
+
 ![](images/image45.jpg)
+
+The end point will be 163989.554567,3627317.923206 \[EPSG:3197\].
+
+# Shortest path to flooded neighbourhoods for water resupply
+
+Similarly, we will map the shortest path from the end point to the centroids using shortest path and usable EMSR roads.
 
 ![](images/image81.png)
 
+# Mapping
+
+We will change the symbology accordingly, making the flood extent an outline, changing the colour of the centroids and roads, as well as the thickness of roads for a better view.
+
+Follow similar steps from the previous scenarios to create these maps, one showing the resupply routes for water and logistics. We create two maps, one zoomed in to the flood extent/within Derna, the other zoomed out to show the origin points (airports or desalination plants).
+
+We create a legend and scalebar for each map. For the smaller map showing the zoomed-out map, we check \'Frame\' to outline it from the other map.
+
 ![](images/image53.png)
+
+We obtain the following maps:
 
 ![](images/image75.png)
 
