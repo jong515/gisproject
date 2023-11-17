@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Group 4 - Before Scenario</title>
+<title>Group 4 - Before Flood Scenario</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -104,15 +104,15 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./before.html" rel="" target="">
- <span class="dropdown-text">Before Scenario</span></a>
+ <span class="dropdown-text">Before Flood Scenario</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./during.html" rel="" target="">
- <span class="dropdown-text">During Scenario</span></a>
+ <span class="dropdown-text">During Flood Scenario</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./after.html" rel="" target="">
- <span class="dropdown-text">After Scenario</span></a>
+ <span class="dropdown-text">After Flood Scenario</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./resupply.html" rel="" target="">
@@ -146,14 +146,26 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#september-2023-osm-roads" id="toc-september-2023-osm-roads" class="nav-link active" data-scroll-target="#september-2023-osm-roads">1 September 2023 OSM Roads</a></li>
+  <li><a href="#od-matrix-for-evacuation-routes" id="toc-od-matrix-for-evacuation-routes" class="nav-link" data-scroll-target="#od-matrix-for-evacuation-routes">OD Matrix for Evacuation Routes</a></li>
+  <li><a href="#shortest-evacuation-path" id="toc-shortest-evacuation-path" class="nav-link" data-scroll-target="#shortest-evacuation-path">Shortest Evacuation Path</a></li>
+  <li><a href="#evacuation-routes-to-prevent-shelter-crowding" id="toc-evacuation-routes-to-prevent-shelter-crowding" class="nav-link" data-scroll-target="#evacuation-routes-to-prevent-shelter-crowding">Evacuation Routes to Prevent Shelter Crowding</a></li>
+  <li><a href="#mapping" id="toc-mapping" class="nav-link" data-scroll-target="#mapping">Mapping</a></li>
+  <li><a href="#analysis-distance" id="toc-analysis-distance" class="nav-link" data-scroll-target="#analysis-distance">Analysis (Distance)</a></li>
+  <li><a href="#analysis-area" id="toc-analysis-area" class="nav-link" data-scroll-target="#analysis-area">Analysis (Area)</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Before Scenario</h1>
+<h1 class="title">Before Flood Scenario</h1>
 </div>
 
 
@@ -168,8 +180,333 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="september-2023-osm-roads" class="level1">
+<h1>1 September 2023 OSM Roads</h1>
+<p>Download:</p>
+<ul>
+<li><p>Go to <a href="https://download.geofabrik.de/africa/libya.html#" class="uri">https://download.geofabrik.de/africa/libya.html#</a></p></li>
+<li><p>Click on raw directory index</p></li>
+<li><p>Download ‘libya-230901-free.shp.zip’</p></li>
+<li><p>Load the roads file into the qgis project</p></li>
+<li><p>Rename it as 'gis_osm_roads_free_1sep 1' for clarity</p></li>
+</ul>
+<p>Clipping:</p>
+<ul>
+<li><p>From the menu bar, navigate to Vector → Geoprocessing Tools → Clip</p></li>
+<li><p>Save the output to the project geopackage as 'osm_roads_1sep23' with EPSG:3197</p></li>
+</ul>
+<p>Finding road speeds:</p>
+<ul>
+<li><p>Derna considered urban as it is a city so we will use 50km/h from (Global Road Safety Facility)</p>
+<p><img src="images/image162.png" class="img-fluid"></p></li>
+<li><p>Assume walking speed 5km/h <a href="https://en.wikipedia.org/wiki/Preferred_walking_speed">Preferred walking speed - Wikipedia</a></p></li>
+<li><p>We assume 15km/h for unclassified and service roads as unclassified roads are smaller and people tend to drive sloer on service roads as they approach their destination.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Right click and open the attribute table for the roads layer</p></li>
+<li><p>Open field calculator.</p></li>
+<li><p>Set the field name as speed, output field type as integer, and input the following expression</p>
+<p><strong>CASE</strong></p>
+<p><strong>WHEN “fclass” = ‘primary’ then 50</strong></p>
+<p><strong>WHEN “fclass” = ‘primary_link’ then 50</strong></p>
+<p><strong>WHEN “fclass” = ‘residential’ then 50</strong></p>
+<p><strong>WHEN “fclass” = ‘secondary’&nbsp; then 50</strong></p>
+<p><strong>WHEN “fclass” = ‘secondary_link’ then 50</strong></p>
+<p><strong>WHEN “fclass” = ‘service’ then 15</strong></p>
+<p><strong>WHEN “fclass” = ‘tertiary’&nbsp; then 50</strong></p>
+<p><strong>WHEN “fclass” = ‘tertiary_link’ then 50</strong></p>
+<p><strong>WHEN “fclass” = ‘trunk’ then 50</strong></p>
+<p><strong>WHEN “fclass” =&nbsp; ‘trunk_link’ then 50</strong></p>
+<p><strong>WHEN “fclass” =&nbsp; ‘unclassified’ then 15</strong></p>
+<p><strong>ELSE 5</strong></p>
+<p><strong>END</strong></p></li>
+<li><p>Click ok</p></li>
+<li><p>Untoggle the pencil icon to save the changes.</p></li>
+</ul>
+</section>
+<section id="od-matrix-for-evacuation-routes" class="level1">
+<h1>OD Matrix for Evacuation Routes</h1>
+<ul>
+<li><p>Import the shortest_path file from the During Scenario.&nbsp;</p></li>
+<li><p>Click once on the shelters layer from the layers panel</p></li>
+<li><p>Open select by expression and type <strong>(get_feature(‘shortest_paths_0a8a2e18_0702_4521_bcfa_34e11bb36e35’,‘destination_id’,@id) IS NULL) or @id=27</strong></p>
+<ul>
+<li><p>The exact string for the shortest_path layer may depend on yours, you can find it from the search bar in the middle pane.</p>
+<p><img src="images/image80.png" class="img-fluid"></p></li>
+<li><p>27 is included by hardcoding as it is the destination node for the null values as it is the last value in the (during) shortesst_path attribute table</p></li>
+<li><p>Click 'select features' then 'Close'.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Open 'Select by Location' and input according to the photo below, then click 'Run' and 'Close'.</p>
+<p><img src="images/image84.png" class="img-fluid"></p>
+<p>You obtain the following</p>
+<p><img src="images/image68.png" class="img-fluid"></p>
+<p><img src="images/image1.png" class="img-fluid"></p></li>
+</ul></li>
+<li><p>From Processing Toolbox, search for 'OD Matrix from Layers as Lines (m:n)'</p></li>
+<li><p>Input the following parameters as shown in the picture below:</p>
+<p><img src="images/image134.png" class="img-fluid"></p></li>
+<li><p>Then right click on the layer in the layers panel to export it, replacing the spaces in its name with underscores.</p>
+<p><img src="images/image37.png" class="img-fluid"></p></li>
+<li><p>For comparison, we also create an OD matrix with similar parameters that optimises for shortest distance, and name it output_od_matrix_distance.</p></li>
+</ul>
+</section>
+<section id="shortest-evacuation-path" class="level1">
+<h1>Shortest Evacuation Path</h1>
+<ul>
+<li>From the menu bar, navigate to Database -&gt; DB Manager<img src="images/image28.png" class="img-fluid"></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Select from the dropdown virtual layers → project layers → Output_OD_matrix</p></li>
+<li><p>Click on the SQL window icon (middle)<img src="images/image153.png" class="img-fluid">.</p></li>
+<li><p>Type the following query then click 'Execute':</p></li>
+</ul>
+<p><strong>select origin_id, destination_id, min(total_cost) as shortest_path, geometry</strong></p>
+<p><strong>from output_od_matrix</strong></p>
+<p><strong>group by origin_id</strong></p>
+<ul>
+<li><p>Check load as a new layer and input the following settings before clicking 'Load'.</p>
+<p><img src="images/image39.png" class="img-fluid"></p></li>
+</ul>
+<p>Save BEFORE_evac_routes to the geopackage and remove temporary layers.</p>
+<p><img src="images/image124.png" class="img-fluid"></p>
+<p>Using this approach, the fastest route by car takes around 2 minutes. But the shelters are likely to be overcrowded as only 4 shelters are used for the 112 neighbourhoods in the flood extent.</p>
+<p><img src="images/image133.png" class="img-fluid"></p>
+<p><img src="images/image2.png" class="img-fluid"></p>
+</section>
+<section id="evacuation-routes-to-prevent-shelter-crowding" class="level1">
+<h1>Evacuation Routes to Prevent Shelter Crowding</h1>
+<p>We notice that only the shelters closer to the flood extent are used, which may be crowded.</p>
+<p>To prevent shelter crowding and to get residents to evacuate to further and safer shelters, we will spread them out. Assuming an equal number of residents per neighbourhood and equal shelter capacity, we divide the 112 neighbourhood centroids by the 12 shelters (outside of flood extent not used in the During scenario), to obtain a rough ratio of 10 neighbourhoods to one shelter.&nbsp;</p>
+<p><img src="images/image79.png" class="img-fluid"></p>
+<ul>
+<li><p>Open Jupyter notebook and navigate to the project directory where the CSV file is.</p></li>
+<li><p>Create a new jupyter notebook file.</p></li>
+<li><p>Type the following code:</p>
+<ul>
+<li><p>import pandas as pd</p>
+<p>od_matrix = pd.read_csv(‘output_od_matrix.csv’)[[‘fid’,‘origin_id’,‘destination_id’,‘total_cost’]]</p>
+<p>costSorted =&nbsp; od_matrix.groupby([‘destination_id’])[‘total_cost’].mean().sort_values(ascending=False)</p>
+<p>shelterAssigned = [-1 for i in range(113)]</p>
+<p>shelterAssigned[43]=0</p>
+<p>assigned = 0</p>
+<p>for shelter in costSorted.index.values: # 12 iterations</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;toThisShelter = od_matrix[od_matrix[‘destination_id’]==shelter].sort_values(‘total_cost’)</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;count = 10&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;ttsRow = 0</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;while count &gt; 0 and assigned&lt;112 and ttsRow&lt;112: #10+ iterations</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;start = int(toThisShelter.iloc[ttsRow][‘origin_id’])-1</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if shelterAssigned[start]==-1:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;#shelterAssigned[start] = shelter</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shelterAssigned[start] = int(toThisShelter.iloc[ttsRow][‘fid’])</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count -= 1</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assigned += 1</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ttsRow += 1</p>
+<p># writing to csv file&nbsp;&nbsp;</p>
+<p>with open(‘assignShelters.csv’, ‘w’) as csvfile:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;writer = csv.writer(csvfile)&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;writer.writerow([‘fid’])&nbsp; #header</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;# writing data rows&nbsp;&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;for i in shelterAssigned:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if i != 0: #removing error data</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;writer.writerow([i])</p></li>
+</ul></li>
+<li><p>The aim of the above code is to</p></li>
+</ul>
+<ol type="1">
+<li><p>Calculate the mean distance between a shelter and all the neighbourhood centroids in the flood extent.</p></li>
+<li><p>Starting from the shelters with the furthest mean distance, we assign to it the 10 closest neighbourhoods that are not already assigned to any shelter.</p></li>
+<li><p>The code will stop when all neighbourhoods have been assigned. The last shelter to be assigned (closest to the flood extent) will have 2 neighbourhoods assigned only, but it can act as a buffer if any other shelter is overcrowded.</p></li>
+</ol>
+<ul>
+<li><p>Load the output csv into qgis</p></li>
+<li><p>Click once on the output_od_matrix (exclude during shelters) layer</p></li>
+<li><p>Open Select by Expression</p>
+<p>array_contains( aggregate(‘assignShelters_00ea0981_86ba_40ae_9f34_343c23af4255’,‘array_agg’,“fid”),to_string(“fid”))</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Click 'Select Features'</p></li>
+<li><p>Save selected features to the geopackage as assignedShelters</p></li>
+</ul>
+</section>
+<section id="mapping" class="level1">
+<h1>Mapping</h1>
+<ul>
+<li><p>Double click on the flood extent layer to open its properties</p></li>
+<li><p>Navigate to Symbology if it is not already selected</p></li>
+<li><p>Select 'Simple line'</p></li>
+<li><p>Set the colour to blue and the stroke width to 1mm. Set stroke style to dot line.</p>
+<p><img src="images/image109.png" class="img-fluid"></p></li>
+<li><p>Similarly, set the lines for the OD_matrix and the fastest routes as 0.5mm.</p></li>
+<li><p>Set the symbol of shelters as the topo camp SVG marker.</p>
+<p><img src="images/image44.png" class="img-fluid"></p></li>
+<li><p>Click on 'Labels'.&nbsp;</p></li>
+<li><p>Set 'Single Labels'.</p></li>
+<li><p>Set value to 'Name'.&nbsp;</p></li>
+<li><p>Click on 'Buffer', select 'Draw text buffer'.</p></li>
+<li><p>Click on 'Formatting', then insert ' ' in Wrap on character.</p></li>
+<li><p>Click 'Apply' and 'OK'.</p>
+<p><img src="images/image55.png" class="img-fluid"></p></li>
+<li><p>Double click on the assignedShelters layer to open the properties, then click on Symbology.</p></li>
+<li><p>Change 'Single Symbol' to 'Categorized', set value as 'destination_id'.&nbsp;</p></li>
+<li><p>Click on 'Symbol' then set the thickness to 1mm.</p></li>
+</ul>
+<p><img src="images/image29.png" class="img-fluid"></p>
+<ul>
+<li><p>For each symbol, double click into it.&nbsp;</p></li>
+<li><p>Click on 'Simple Line'.</p></li>
+<li><p>Input the following offsets and colour (bold in the first row):</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>-2(red)</th>
+<th>-1(green)</th>
+<th>0 (orange)</th>
+<th>1 (blue)</th>
+<th>2 (brown)</th>
+<th>3 (purple)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>14</td>
+<td>12</td>
+<td>15</td>
+<td>1</td>
+<td>8</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>26</td>
+<td>25</td>
+<td>27</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>13</td>
+<td></td>
+<td>10</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+<!-- -->
+<ul>
+<li>The table was derived by finding routes that overlapped and assigning them different offset and colours.</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Click on 'Apply', then 'OK'.</p></li>
+<li><p>Click on Project → New Print Layout.</p></li>
+<li><p>Name the layout 'Before model' then click 'OK'.</p></li>
+<li><p>Click on Add item → Add Map. Drag the map to fill the whole extent of the layout.</p>
+<ul>
+<li><p>Set map rotation to 10 degrees.</p></li>
+<li><p>Set scale to 26000&nbsp;</p></li>
+<li><p>Adjust the extents such that all shelters are in view. (Use the same increment/decrements of 100 for X min with X max, and for Y min with Y max to maintain the aspect ratio of the map.) This are the extents I ended up with:</p>
+<p><img src="images/image69.png" class="img-fluid"></p></li>
+</ul></li>
+<li><p>Click on Add item → Add label</p>
+<ul>
+<li><p>Type 'Assigned Evacuation Routes to Shelters'</p></li>
+<li><p>Set the font to Georgia, 27 points, style as Bold.</p></li>
+<li><p>Place the label centrally aligned at the top of the map.</p></li>
+</ul></li>
+<li><p>Click on Add item → Add North Arrow, drag a rectangle to insert a north arrow.</p></li>
+<li><p>Click on Add item → Add Scale Bar, drag a rectangle to insert a scale bar.</p></li>
+<li><p>The legend was made on Inkscape, but you can screenshot the following photo, remove its background and save as .png, then insert into your map.</p>
+<p><img src="images/image142.png" class="img-fluid"></p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Click on Add item → Add Picture</p>
+<ul>
+<li><p>Select the radio button besides 'Raster image'</p></li>
+<li><p>Browse for the saved png photo.</p></li>
+<li><p>Move the legend to the bottom right of the map such that it does not cross the flood extent.</p></li>
+</ul></li>
+</ul>
+<p><img src="images/image95.png" class="img-fluid"></p>
+</section>
+<section id="analysis-distance" class="level1">
+<h1>Analysis (Distance)</h1>
+<ul>
+<li><p>We double click the layer assignedShelters to open its properties.</p></li>
+<li><p>Select 'Join'.</p></li>
+<li><p>Select output_od_matrix_distance as the join layer, fid as the join field, then select origin_id, destination_id, total_cost as the Joined fields. The inclusion of origin_id and destination_id is to double check the join is performed correctly. Click on "OK" to close the edit vector join window, then click on "Apply" and "OK" to exit the properties window.</p></li>
+</ul>
+<p><img src="images/image15.png" class="img-fluid"></p>
+<p><img src="images/image92.png" class="img-fluid"></p>
+<ul>
+<li><p>The Join has been performed successfully.</p></li>
+<li><p>(Optional) Return to the Edit Vector Join window to uncheck origin_id and destination_id for a cleaner table.</p></li>
+</ul>
+</section>
+<section id="analysis-area" class="level1">
+<h1>Analysis (Area)</h1>
+<ul>
+<li><p>Load the Open Aerial Map 13 Sep tiff file into the qgis project.</p></li>
+<li><p>Load the shelter points layer</p></li>
+<li><p>Click on 'New Shapefile layer'</p></li>
+</ul>
+<p><img src="images/image146.png" class="img-fluid"></p>
+<ul>
+<li>Create a new Polygon layer with the project CRS named as 'shelter area.shp' in a Shapefile subfolder of the project folder.</li>
+</ul>
+<p><img src="images/image49.png" class="img-fluid"></p>
+<ul>
+<li>Click on the pencil icon to toggle editing mode on, then click 'Add Polygon Feature'.</li>
+</ul>
+<p><img src="images/image120.png" class="img-fluid"></p>
+<ul>
+<li>Trace the building outline of shelters using the satellite image. Left click on the edges of the building when tracing and right click when done. Follow the fid of the shelter layer (which you may check using the identify features tool) when assigning id. You may also refer th OpenStreetMap or OSM_buildings layer for outlining buildings in cloudy areas.</li>
+</ul>
+<p><img src="images/image50.png" class="img-fluid"></p>
+<ul>
+<li><p>When done, open the attribute table of the shelter area layer.</p></li>
+<li><p>Open Field calculator. Create a new decimal field called 'area' using the expression $area</p></li>
+</ul>
+<p><img src="images/image137.png" class="img-fluid"></p>
+<ul>
+<li><p>Untoggle edit mode to save the changes.</p></li>
+<li><p>Open 'Select by Expression' and input the expression sum(“area”)</p></li>
+</ul>
+<p><img src="images/image83.png" class="img-fluid"></p>
+<ul>
+<li>This means that the area of the shelters is 3 hectares.</li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Load the OSM_buildings layer and clip by the derna hexagon layer.</p></li>
+<li><p>Save the result as derna_buildings.</p></li>
+<li><p>Open 'Select by Location' and input Select features from derna_buildings where the features are within flood_extent_neighbourhoods.</p></li>
+</ul>
+<p><img src="images/image35.png" class="img-fluid"></p>
+<ul>
+<li><p>Open attribute table for derna_buildings, then field calculator.</p></li>
+<li><p>Create a new decimal field 'area' with the formula $area, only updating the selected features</p></li>
+</ul>
+<p><img src="images/image76.png" class="img-fluid"></p>
+<ul>
+<li><p>Click 'OK', then untoggle editing mode to save changes.</p></li>
+<li><p>Open 'Select by Expression', then input the formula sum("area")</p></li>
+</ul>
+<p><img src="images/image25.png" class="img-fluid"></p>
+<ul>
+<li>This means that the residential area in the flood extent is 50 hectares.</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
