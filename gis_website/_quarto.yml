@@ -18,7 +18,6 @@ website:
         - during.qmd
         - after.qmd
         - resupply.qmd
-
       - href: results.qmd
         text: Results and Discussion
       - href: lessons.qmd
