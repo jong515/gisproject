@@ -30,11 +30,11 @@ Map window should now look like this with a temporary Difference layer created. 
 
 ![](images/image72.jpg)
 
-# Converting Flood Extent Polygon to a Line layer 
+# Converting Flood Extent Polygon to a Line layer
 
 From the menu bar, select Processing → Toolbox.
 
--   Type \'polygon to lines\' in the search bar
+-   Type 'polygon to lines' in the search bar
 
 -   Select Polygons to lines under Vector geometry
 
@@ -52,7 +52,7 @@ A temporary Line output layer will be created. Save this layer into Geopackage a
 
 # Creating StartPoints at flood extent layer with Intersection
 
-From Toolbox, type in \'line intersections\' in search bar.
+From Toolbox, type in 'line intersections' in search bar.
 
 ![](images/image30.jpg)
 
@@ -90,7 +90,7 @@ Zoom into the Intersections layer and use Toggle Editing and Select Features to 
 
 ![](images/image11.jpg)
 
-After deleting all unsuitable points, save the temporary layer into Geopackage, name the layer as \'startpoints\'.
+After deleting all unsuitable points, save the temporary layer into Geopackage, name the layer as 'startpoints'.
 
 # OD Matrix for Shelters
 
@@ -98,7 +98,7 @@ Now we want to origin-destination pairs from startpoints to shelters outside the
 
 ![](images/image140.jpg)
 
-From Processing → Toolbox → type \'od matrix\'.
+From Processing → Toolbox → type 'od matrix'.
 
 -   Select OD Matrix from Layers as Lines (m:n) under Distance Matrices in the QNEAT3 plugin.
 
@@ -126,7 +126,7 @@ Map window should look like this with the Output OD Matrix generated.
 
 ![](images/image101.jpg)
 
-Save the output layer into Geopackage, naming it \'during_OD_matrix\'.
+Save the output layer into Geopackage, naming it 'during_OD_matrix'.
 
 ![](images/image98.jpg)
 
@@ -226,9 +226,9 @@ Follow similar steps from the Before Flood scenario to create these maps, one sh
 
 -   Steps for Legend (as the legend for During and After were created in QGIS)
 
-    -   Set the title as \'Legend\'.
+    -   Set the title as 'Legend'.
 
-    -   Check \'only show items inside linked map\'
+    -   Check 'only show items inside linked map'
 
     -   Under Font and text formatting, set the legend title font to Georgia, 16 points.
 
@@ -238,7 +238,7 @@ Follow similar steps from the Before Flood scenario to create these maps, one sh
 
 ![](images/image47-01.png)
 
-# Medical Accessibility from Shelters and Flood Extent 
+# Medical Accessibility from Shelters and Flood Extent
 
 Setting OSM road Speeds
 
@@ -276,7 +276,7 @@ Setting OSM road Speeds
 
 **END**
 
--   Click \'OK\'
+-   Click 'OK'
 
 -   Untoggle editing mode using the pencil icon and save the changes.
 
@@ -302,7 +302,7 @@ OD Matrix
 
 **group by origin_id**
 
--   Check \'Load as new layer\', input a layer name, check \'Geometry column\' as geometry, then click \'Load\'.
+-   Check 'Load as new layer', input a layer name, check 'Geometry column' as geometry, then click 'Load'.
 
 ![](images/image54.png)
 
@@ -317,3 +317,5 @@ OD Matrix
 -   Follow similar steps from the previous scenarios to create maps for these 2 layers. For example,
 
 ![](images/image16-01.png)
+
+We are now finished with the preparation of the during scenario maps and analysis.
