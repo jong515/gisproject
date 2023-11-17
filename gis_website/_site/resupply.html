@@ -104,15 +104,15 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="./before.html" rel="" target="">
- <span class="dropdown-text">Before Scenario</span></a>
+ <span class="dropdown-text">Before Flood Scenario</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./during.html" rel="" target="">
- <span class="dropdown-text">During Scenario</span></a>
+ <span class="dropdown-text">During Flood Scenario</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./after.html" rel="" target="">
- <span class="dropdown-text">After Scenario</span></a>
+ <span class="dropdown-text">After Flood Scenario</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./resupply.html" rel="" target="">
@@ -168,6 +168,73 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<ul>
+<li><p>We will use suitable_shelters from the during scenario as our shelters layer.</p></li>
+<li><p>We then use Menu Bar → Vector Tools -&gt; Geoprocessing Tools -&gt; Difference to find the roads outside of the flood extent. We set the input layer as gis_osm_roads_free_1 (23 oct) and the overlay layer as flood extent.</p></li>
+<li><p>We export this file to our geopackage as osm_roads_outside_flood.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li>From processing toolbox find 'Shortest path (point to layer)'</li>
+</ul>
+<p><img src="images/image147.png" class="img-fluid"></p>
+<ul>
+<li><p>Click on 'Run as Batch Process'</p></li>
+<li><p>For start point, click on 'Autofill' → 'Add Values by Expression'</p></li>
+</ul>
+<p><img src="images/image103.png" class="img-fluid"></p>
+<ul>
+<li><p>We will be running this function four times, for start points (desalination plants and airports) to end points (shelters and hospitals).</p></li>
+<li><p>key in this expression, swapping 'desalination plants' layer for hospital when needed</p></li>
+</ul>
+<p><strong>aggregate(layer:=‘desalination plants’,aggregate:=‘array_agg’,expression:=$geometry)</strong></p>
+<ul>
+<li><p>Change the vector representing network to 'gis_osm_roads_free_1' (the 23 oct 2023 version) for both rows</p></li>
+<li><p>Set vector layer with endpoints to 'shelters' or 'hospitals'.</p></li>
+<li><p>For shortest path, type 'TEMPORARY_OUTPUT' for both rows.</p></li>
+<li><p>Remove the blank first row if needed</p></li>
+</ul>
+<p><img src="images/image131.png" class="img-fluid"></p>
+<p><img src="images/image93.png" class="img-fluid"></p>
+<ul>
+<li><p>Click 'Run'.</p></li>
+<li><p>We obtain this for the initial shortest path analysis (from desalination plants/airports to sheltershospitals) using OSM roads only</p></li>
+</ul>
+<p><img src="images/image60.png" class="img-fluid"></p>
+<ul>
+<li><p>Export the output into the geopackage and rename them accordingly e.g.&nbsp;waterToSheltersDURING1</p></li>
+<li><p>Repeat for all 4 combinations of start and end points.</p></li>
+<li><p>We repeat the After Scenario steps with the suitable shelters and hospitals outside the flood extent.</p>
+<ul>
+<li>We will select a point on the shorter road above as our midpoint: 158336.235137,3629392.588741 [EPSG:3197]</li>
+</ul></li>
+</ul>
+<p><img src="images/image158.png" class="img-fluid"></p>
+<ul>
+<li><p>We do the shortest path analysis from the midpoint to the desalination plant, shelters, and hospital using the usable_emsr_roads.&nbsp;</p></li>
+<li><p>We then save these outputs into the geopackage.&nbsp;</p></li>
+</ul>
+<!-- -->
+<ul>
+<li>We will be using 169223.320567,3622521.383079 [EPSG:3197] as our midpoint from the airports, the branch point in the picture below</li>
+</ul>
+<p><img src="images/image20.png" class="img-fluid"></p>
+<ul>
+<li><p>We do the shortest path analysis from the midpoint to the airports, shelters, and hospitals.&nbsp;</p></li>
+<li><p>We then save these outputs into the geopackage.&nbsp;</p></li>
+</ul>
+<!-- -->
+<ul>
+<li>When mapping, we take note to update the legends and rename the road as route for simplification. This is done by temporarily renaming one of the road layers in the project window's layers panel to 'Route'.</li>
+</ul>
+<p><img src="images/image114.png" class="img-fluid"></p>
+<ul>
+<li>Also turn off 'Resize to fit content' under legend.</li>
+</ul>
+<p><img src="images/image22.png" class="img-fluid"></p>
+<p>We get maps that look similar to this:</p>
+<p><img src="images/image100-01.png" class="img-fluid"></p>
+<p>We are now finished with the preparation of the resupplies to shelters and hospitals maps and analysis.</p>
 
 
 
