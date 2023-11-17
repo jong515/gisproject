@@ -3,3 +3,79 @@ title: "Data Cleaning"
 ---
 
 This is the list of layers we save in the final geopackage. Though not in the picture, we also save the flood extent line to the geopackage.
+
+![](images/image41.png)
+
+We start data cleaning from the bottom.
+
+For derna_buildings,
+
+-   Right click the layer and open its Attribute table.
+
+-   Open \'Select by Expression\'.
+
+-   Enter the function  "area" is null and click \'Select Features\', then \'Close\' the window.
+
+-   Toggle editing mode on, then delete the selected features.
+
+-   We then navigate to the layer\'s properties window, under the Fields tab. 
+
+-   We delete all fields except for fid and area.
+
+-   Toggle editing mode off and save the changes.
+
+For the routes under the \'Resupply to shelters and hospital (During)\', \'Resupply to shelters and hospital (Before and After)\', \'After (Resupply to flooded neighbourhoods)\'  groups in the above picture, we delete all the fields except for fid, start, end and cost.
+
+-   Double click the layer to open its properties, then navigate to Fields.
+
+-   Toggle editing mode on.
+
+-   Click on osm_id and hold the shift key.
+
+-   Click on the last field before start. This selects all the fields in between fid and start.
+
+-   Click on the delete field button.
+
+-   Toggle editing mode off and save the changes.
+
+-   Repeat for the other layers in the layer group.
+
+For waterResupplyToSheltersDuring1/2, we rename it to remove the word \'Resupply\' for consistency with the other similar layers.
+
+-   Navigate to the geopackage in the browser panel, then click on the dropdown to display all its layers.
+
+-   Right click on the waterResupplyToSheltersDuring1
+
+![](images/image113.png)
+
+-   Click on \'Rename layer\' and remove the word \'Resupply\'.
+
+-   Repeat for waterResupplyToSheltersDuring2.
+
+For the layers in the Before and During layer group,
+
+-   For the OD_matrix layers:
+
+    -   Right click the layer and open its Attribute table.
+
+    -   Open \'Select by Expression\'.
+
+    -   Enter the function  "total_cost" is null and click \'Select Features\', then \'Close\' the window.
+
+    -   Toggle editing mode on, then delete the selected features.
+
+-   We then navigate to the layer\'s properties window, under the Fields tab. 
+
+-   We delete all but 4 fields: fid, origin_id, destination_id, total_cost/shortest_path.
+
+-   Toggle editing mode off and save the changes.
+
+For the layers in the points of interest group,
+
+-   For desalination plant, airports, and suitable_hospitals, we delete all fields except for fid and name.
+
+-   For flooded_neighbourhood_centroids and startpoints, we save only the fid field.
+
+-   For suitable_shelters and before_shelters, we save fid, fclass, and name.
+
+For the flood extent layer, we save the fields fid, Area_m2 and EventCode.
