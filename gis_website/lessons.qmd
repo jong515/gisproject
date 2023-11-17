@@ -4,11 +4,11 @@ title: "Lessons"
 
 ## Lessons Learnt
 
-Our group realized that data cleaning is an extremely important step in analysis, as it would cause many problems down the line as we start working with the data and realizing it would be too messy.
+Our group realized that **data cleaning** is an **extremely important** step in analysis, as it would cause many problems down the line as we start working with the data and realizing it would be too messy.
 
-For our approach, we had many trial and error attempts while figuring out what we were going to do. We initially thought of using the Iso-Area function to flag the areas that were closer to or further from the shelters, but realized the range was too small to be of significant concern (e.g. within 1.5km or within a few minutes drive). We also found that starting points that are close to shelters may be misleading as the closest shelter may not have the capacity to contain evacuees from there.
+For our **approach**, we had many **trial and error** attempts while figuring out what we were going to do. We initially thought of using the Iso-Area function to flag the areas that were closer to or further from the shelters, but realized the range was too small to be of significant concern (e.g. within 1.5km or within a few minutes drive). We also found that starting points that are close to shelters may be misleading as the closest shelter may not have the capacity to contain evacuees from there.
 
-With regards to finding existing functions to use for our analysis, we had 2 changes.
+With regards to finding existing **functions to use** for our analysis, we had 2 changes.
 
 1.  We tried to use batch processing shortest path (point to layer), but later realized OD matrix is more efficient as two of our machines were stuck at the batch process.
 
