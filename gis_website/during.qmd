@@ -139,3 +139,181 @@ From menu bar, select Database → DB Manager
 -   Add Query layer and type in the following query:
 
 ![](images/image164.jpg)
+
+-   Click on Execute
+
+![](images/image130.jpg)
+
+-   Click on Load as new layer
+
+-   Select geometry from Geometry column
+
+-   Click on Load
+
+Map window should now look like this with the QueryLayer added, showing the shortest paths from startpoints to shelters.
+
+![](images/image43.jpg)
+
+Exported querylayer as shortest_paths. \[later renamed as shortest_paths (shelters)\].
+
+![](images/image38.jpg)
+
+# Creating Centroids for Hospitals
+
+From menu bar, select Vector → Geometry Tools → Centroids
+
+![](images/image8.jpg)
+
+Centroids dialogue window appears.
+
+-   Under Input layer, select Hospitals layer
+
+![](images/image10.jpg)
+
+-   Click on Run
+
+Map window should look like this with temporary output layer Centroids created.
+
+![](images/image51.jpg)
+
+From the menu bar, click on Select Features.
+
+![](images/image21.jpg)
+
+Select the hospital centroids outside the flood extent and extract them into a new layer, suitable_hospitals.
+
+![](images/image57.jpg)
+
+![](images/image9.jpg)
+
+# OD Matrix and Shortest Paths for Hospitals
+
+Repeat the steps above to create an OD Matrix from startpoints to suitable_hospitals, with parameters as shown below.
+
+![](images/image156.jpg)
+
+Repeat the steps above, using DB Manager to create a QueryLayer that computes the shortest paths from startpoints to hospitals using the OD Matrix.
+
+![](images/image117-01.jpg)
+
+After loading the query, a new QueryLayer should be created into QGIS. 
+
+# Data Cleaning of Startpoints
+
+Upon examination of the Realising that some of the startpoints do not have routes to hospitals. Checking both OD matrix attribute tables, selected their Origin IDs and by observation found out that the roads they are connected to are broken. Thus, we removed them from the original startpoints layer. 
+
+-   From startpoints layer, open Attribute Table → Select by Expression → selected fids that were not suitable startpoints
+
+![](images/image163.jpg)
+
+-   Click on Toggle Editing → Delete features
+
+![](images/image89.jpg)
+
+![](images/image73.jpg)
+
+-   Repeat the data cleaning steps for other necessary layers like the OD matrices and QueryLayers.  
+
+Save the most recent temporary QueryLayer into Geopackage and name the layer as shortest_paths (hospitals). 
+
+Map window should now look like this.
+
+![](images/image139.jpg)
+
+# Mapping
+
+Follow similar steps from the Before Flood scenario to create these maps, one showing the routes and shortest paths to shelters, the other showing the same but to hospitals outside the flood extent. 
+
+-   Steps for Legend (as the legend for During and After were created in QGIS)
+
+    -   Set the title as \'Legend\'.
+
+    -   Check \'only show items inside linked map\'
+
+    -   Under Font and text formatting, set the legend title font to Georgia, 16 points.
+
+    -   Under Font and text formatting, set the labels font to Georgia, 14 points.
+
+![](images/image36.png)
+
+![](images/image47-01.png)
+
+# Medical Accessibility from Shelters and Flood Extent 
+
+Setting OSM road Speeds
+
+-   Open the attribute table of the OSM roads (23 oct) layer outside of the flood extent (OSM_roads_outside_flood)
+
+-   Open Field Calculator
+
+-   Create a new Integer field called Speed using the following expression:
+
+**CASE**
+
+**WHEN "fclass" = 'primary' then 50**
+
+**WHEN "fclass" = 'primary_link' then 50**
+
+**WHEN "fclass" = 'residential' then 50**
+
+**WHEN "fclass" = 'secondary'  then 50**
+
+**WHEN "fclass" = 'secondary_link' then 50**
+
+**WHEN "fclass" = 'service' then 15**
+
+**WHEN "fclass" = 'tertiary'  then 50**
+
+**WHEN "fclass" = 'tertiary_link' then 50**
+
+**WHEN "fclass" = 'trunk' then 50**
+
+**WHEN "fclass" =  'trunk_link' then 50**
+
+**WHEN "fclass" =  'unclassified' then 15**
+
+**ELSE 5**
+
+**END**
+
+-   Click \'OK\'
+
+-   Untoggle editing mode using the pencil icon and save the changes.
+
+-   Close the attribute table
+
+OD Matrix
+
+-   From processing tools, search for OD Matrix from Layers as Lines (M:N).
+
+-   Set the following parameters: OSM_roads_outside_flood as the Network layer, suitable_shelters as the From-Point Layer, Hospitals as To-Point layer, Fastest Path as Optimization Criterion, Matrix Geometry follows routes as Generated Matrix geometry style, oneway as Direction field with the direction values F,T,B in that order. Speed as speed field and default speed as 5km/h.
+
+![](images/image122.png)
+
+-   Rename the output layer accordingly, ensuring there is no spaces. E.g. ODmatrix_time_shelterToHospital_osmOutsideFlood
+
+-   Open Database -\> DB Manager, then navigate to the output layer.
+
+-   Input the SQL code:
+
+**select origin_id, destination_id, min(total_cost) as shortest_path, geometry**
+
+**from ODmatrix_time_shelterToHospital_osmOutsideFlood**
+
+**group by origin_id**
+
+-   Check \'Load as new layer\', input a layer name, check \'Geometry column\' as geometry, then click \'Load\'.
+
+![](images/image54.png)
+
+-   Save the output into the geopackage.
+
+-   Repeat using the flood extent startpoints as the From-Point layer.
+
+![](images/image46.png)
+
+![](images/image150.png)
+
+-   Follow similar steps from the previous scenarios to create maps for these 2 layers. For example,
+
+![](images/image16-01.png)
