@@ -10,4 +10,4 @@ We will be using the recent flooding in Libya as our case study, and map out the
 
 Here is a quick summary of our project via our townhall presentation poster:
 
-![](images/Poster.png)
+![](images/Poster Final.png)

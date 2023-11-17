@@ -4,9 +4,7 @@ title: "Data Preparation"
 
 # Summary Flow Chart
 
-![](images/Methodology%20Flow%20Chart.png)
-
-We chose to set our project CRS as EPSG:3197 as it is the CRS with the smallest extent that includes our study area.
+![](images/Methodology Flow Chart Final.png)We chose to set our project CRS as EPSG:3197 as it is the CRS with the smallest extent that includes our study area.
 
 # Data Download
 
