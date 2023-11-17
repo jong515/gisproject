@@ -131,3 +131,11 @@ Save the output layer into Geopackage, naming it \'during_OD_matrix\'.
 ![](images/image98.jpg)
 
 # Finding Shortest Paths to Shelters
+
+From menu bar, select Database → DB Manager
+
+-   Select Output_OD_matrix layer from Virtual layer
+
+-   Add Query layer and type in the following query:
+
+![](images/image164.jpg)

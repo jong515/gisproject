@@ -146,7 +146,19 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#setting-the-scene" id="toc-setting-the-scene" class="nav-link active" data-scroll-target="#setting-the-scene">Setting the Scene</a></li>
+  <li><a href="#clipping-roads-outside-of-flood-extent" id="toc-clipping-roads-outside-of-flood-extent" class="nav-link" data-scroll-target="#clipping-roads-outside-of-flood-extent">Clipping Roads outside of Flood Extent</a></li>
+  <li><a href="#converting-flood-extent-polygon-to-a-line-layer" id="toc-converting-flood-extent-polygon-to-a-line-layer" class="nav-link" data-scroll-target="#converting-flood-extent-polygon-to-a-line-layer">Converting Flood Extent Polygon to a Line layer</a></li>
+  <li><a href="#creating-startpoints-at-flood-extent-layer-with-intersection" id="toc-creating-startpoints-at-flood-extent-layer-with-intersection" class="nav-link" data-scroll-target="#creating-startpoints-at-flood-extent-layer-with-intersection">Creating StartPoints at flood extent layer with Intersection</a></li>
+  <li><a href="#cleaning-intersection-points" id="toc-cleaning-intersection-points" class="nav-link" data-scroll-target="#cleaning-intersection-points">Cleaning Intersection Points</a></li>
+  <li><a href="#od-matrix-for-shelters" id="toc-od-matrix-for-shelters" class="nav-link" data-scroll-target="#od-matrix-for-shelters">OD Matrix for Shelters</a></li>
+  <li><a href="#finding-shortest-paths-to-shelters" id="toc-finding-shortest-paths-to-shelters" class="nav-link" data-scroll-target="#finding-shortest-paths-to-shelters">Finding Shortest Paths to Shelters</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -168,8 +180,109 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="setting-the-scene" class="level1">
+<h1>Setting the Scene</h1>
+<p>For the During Flood scenario, we decided to use the points which the perimeter of the flood extent (flood extent outline) intersects with the roads as origin points where people can evacuate from the flood. This is because the road network within the flood area would be destroyed and flooded, and therefore unable to be used for evacuation.</p>
+<p>Thus in this scenario, we assumed that remaining survivors of the flood would be able to escape to the edge of the flood extent and use the undestroyed road networks outside of the damaged area to evacuate to shelters and hospitals. Using the Roads data from Copernicus ESMR, we were thus able to ascertain which roads outside the flood extent could be used, which was all of them as the destroyed and damaged roads were mostly within the flood extent.</p>
+<p><img src="images/image115.jpg" class="img-fluid"></p>
+</section>
+<section id="clipping-roads-outside-of-flood-extent" class="level1">
+<h1>Clipping Roads outside of Flood Extent</h1>
+<p>From menu bar, select Vector → Geoprocessing Tools → Difference</p>
+<p><img src="images/image33.jpg" class="img-fluid"></p>
+<p>Difference dialogue window appears.&nbsp;</p>
+<ul>
+<li><p>Under Input layer, select emsr_roads (the GRA version)</p></li>
+<li><p>For Overlay layer, select flood_extent</p></li>
+<li><p>Click on Run.</p></li>
+</ul>
+<p><img src="images/image64-01.jpg" class="img-fluid"></p>
+<p>Map window should now look like this with a temporary Difference layer created. Save this layer into Geopackage, naming it emsr_roads_outside_flood.</p>
+<p><img src="images/image72.jpg" class="img-fluid"></p>
+</section>
+<section id="converting-flood-extent-polygon-to-a-line-layer" class="level1">
+<h1>Converting Flood Extent Polygon to a Line layer</h1>
+<p>From the menu bar, select Processing → Toolbox.</p>
+<ul>
+<li><p>Type 'polygon to lines' in the search bar</p></li>
+<li><p>Select Polygons to lines under Vector geometry</p></li>
+</ul>
+<p><img src="images/image160.jpg" class="img-fluid"></p>
+<p>Polygons to lines dialogue window appears.</p>
+<p><img src="images/image118.jpg" class="img-fluid"></p>
+<ul>
+<li><p>Under Input layer, select flood_extent</p></li>
+<li><p>Click on Run when ready for operation to run.</p></li>
+</ul>
+<p>A temporary Line output layer will be created. Save this layer into Geopackage and name the layer as flood_extent_line.</p>
+</section>
+<section id="creating-startpoints-at-flood-extent-layer-with-intersection" class="level1">
+<h1>Creating StartPoints at flood extent layer with Intersection</h1>
+<p>From Toolbox, type in 'line intersections' in search bar.</p>
+<p><img src="images/image30.jpg" class="img-fluid"></p>
+<p>Select Line intersections under Vector overlay.</p>
+<p>Line Intersections dialogue window appears.&nbsp;</p>
+<ul>
+<li><p>Under Input layer, select flood_extent_line</p></li>
+<li><p>Under Intersect layer, select emsr_roads</p></li>
+</ul>
+<p><img src="images/image148.jpg" class="img-fluid"></p>
+<p>A temporary output layer named Intersections should be added into the map window.&nbsp;</p>
+<p><img src="images/image105.jpg" class="img-fluid"></p>
+</section>
+<section id="cleaning-intersection-points" class="level1">
+<h1>Cleaning Intersection Points</h1>
+<p>Before saving the layer into Geopackage, we need to first check that the intersection points are valid to be considered as Startpoints where people can evacuate from the flood.</p>
+<p><img src="images/image13.jpg" class="img-fluid"></p>
+<p><img src="images/image3.jpg" class="img-fluid"></p>
+<p>Zoom into the Intersections layer and use Toggle Editing and Select Features to remove points which are connected to broken roads or roads that only lead to another intersection point.</p>
+<p><img src="images/image66.jpg" class="img-fluid"></p>
+<p><img src="images/image141.jpg" class="img-fluid"></p>
+<ul>
+<li>After selecting the points that are unsuitable to be startpoints, click on the Trash icon in the Toggle Editing bar and delete the selected features.</li>
+</ul>
+<p><img src="images/image107.jpg" class="img-fluid"></p>
+<p><img src="images/image11.jpg" class="img-fluid"></p>
+<p>After deleting all unsuitable points, save the temporary layer into Geopackage, name the layer as 'startpoints'.</p>
+</section>
+<section id="od-matrix-for-shelters" class="level1">
+<h1>OD Matrix for Shelters</h1>
+<p>Now we want to origin-destination pairs from startpoints to shelters outside the flood extent. The shelters outside of the flood extent have been clipped and the layer is named suitable_shelters.</p>
+<p><img src="images/image140.jpg" class="img-fluid"></p>
+<p>From Processing → Toolbox → type 'od matrix'.</p>
+<ul>
+<li>Select OD Matrix from Layers as Lines (m:n) under Distance Matrices in the QNEAT3 plugin.</li>
+</ul>
+<p><img src="images/image90.jpg" class="img-fluid"></p>
+<p>The OD Matrix from Layers as Lines dialogue window appears.&nbsp;</p>
+<ul>
+<li><p>For Network Layer, select emsr_roads_outside_flood.</p></li>
+<li><p>For From-Point Layer, select startpoints.</p></li>
+<li><p>For To-Point Layer, select suitable_shleters.&nbsp;</p></li>
+<li><p>Select Shortest Path (distance optimization) for Optimization Criterion</p></li>
+<li><p>Under Advanced Parameters, select Matrix geometry follow routes for Generated Matrix Geometry style</p></li>
+</ul>
+<p><img src="images/image106.jpg" class="img-fluid"></p>
+<p><img src="images/image138.jpg" class="img-fluid"></p>
+<ul>
+<li>Click on Run once ready</li>
+</ul>
+<p>Map window should look like this with the Output OD Matrix generated.</p>
+<p><img src="images/image101.jpg" class="img-fluid"></p>
+<p>Save the output layer into Geopackage, naming it 'during_OD_matrix'.</p>
+<p><img src="images/image98.jpg" class="img-fluid"></p>
+</section>
+<section id="finding-shortest-paths-to-shelters" class="level1">
+<h1>Finding Shortest Paths to Shelters</h1>
+<p>From menu bar, select Database → DB Manager</p>
+<ul>
+<li><p>Select Output_OD_matrix layer from Virtual layer</p></li>
+<li><p>Add Query layer and type in the following query:</p></li>
+</ul>
+<p><img src="images/image164.jpg" class="img-fluid"></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
