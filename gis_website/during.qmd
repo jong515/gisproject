@@ -37,3 +37,97 @@ From the menu bar, select Processing → Toolbox.
 -   Type \'polygon to lines\' in the search bar
 
 -   Select Polygons to lines under Vector geometry
+
+![](images/image160.jpg)
+
+Polygons to lines dialogue window appears.
+
+![](images/image118.jpg)
+
+-   Under Input layer, select flood_extent
+
+-   Click on Run when ready for operation to run.
+
+A temporary Line output layer will be created. Save this layer into Geopackage and name the layer as flood_extent_line.
+
+# Creating StartPoints at flood extent layer with Intersection
+
+From Toolbox, type in \'line intersections\' in search bar.
+
+![](images/image30.jpg)
+
+Select Line intersections under Vector overlay.
+
+Line Intersections dialogue window appears. 
+
+-   Under Input layer, select flood_extent_line
+
+-   Under Intersect layer, select emsr_roads
+
+![](images/image148.jpg)
+
+A temporary output layer named Intersections should be added into the map window. 
+
+![](images/image105.jpg)
+
+# Cleaning Intersection Points
+
+Before saving the layer into Geopackage, we need to first check that the intersection points are valid to be considered as Startpoints where people can evacuate from the flood.
+
+![](images/image13.jpg)
+
+![](images/image3.jpg)
+
+Zoom into the Intersections layer and use Toggle Editing and Select Features to remove points which are connected to broken roads or roads that only lead to another intersection point.
+
+![](images/image66.jpg)
+
+![](images/image141.jpg)
+
+-   After selecting the points that are unsuitable to be startpoints, click on the Trash icon in the Toggle Editing bar and delete the selected features.
+
+![](images/image107.jpg)
+
+![](images/image11.jpg)
+
+After deleting all unsuitable points, save the temporary layer into Geopackage, name the layer as \'startpoints\'.
+
+# OD Matrix for Shelters
+
+Now we want to origin-destination pairs from startpoints to shelters outside the flood extent. The shelters outside of the flood extent have been clipped and the layer is named suitable_shelters.
+
+![](images/image140.jpg)
+
+From Processing → Toolbox → type \'od matrix\'.
+
+-   Select OD Matrix from Layers as Lines (m:n) under Distance Matrices in the QNEAT3 plugin.
+
+![](images/image90.jpg)
+
+The OD Matrix from Layers as Lines dialogue window appears. 
+
+-   For Network Layer, select emsr_roads_outside_flood.
+
+-   For From-Point Layer, select startpoints.
+
+-   For To-Point Layer, select suitable_shleters. 
+
+-   Select Shortest Path (distance optimization) for Optimization Criterion
+
+-   Under Advanced Parameters, select Matrix geometry follow routes for Generated Matrix Geometry style
+
+![](images/image106.jpg)
+
+![](images/image138.jpg)
+
+-   Click on Run once ready
+
+Map window should look like this with the Output OD Matrix generated.
+
+![](images/image101.jpg)
+
+Save the output layer into Geopackage, naming it \'during_OD_matrix\'.
+
+![](images/image98.jpg)
+
+# Finding Shortest Paths to Shelters
