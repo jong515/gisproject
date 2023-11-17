@@ -18,6 +18,7 @@ website:
         - during.qmd
         - after.qmd
         - resupply.qmd
+        - datacleaning.qmd
       - href: results.qmd
         text: Results and Discussion
       - href: lessons.qmd
