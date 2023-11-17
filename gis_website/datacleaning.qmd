@@ -78,4 +78,4 @@ For the layers in the points of interest group,
 
 -   For suitable_shelters and before_shelters, we save fid, fclass, and name.
 
-For the flood extent layer, we save the fields fid, Area_m2 and EventCode.
+For the flood extent layer, we save the fields fid, Area_m^2^ and EventCode.
