@@ -1,3 +1,39 @@
 ---
 title: "During Flood Scenario"
 ---
+
+# Setting the Scene
+
+For the During Flood scenario, we decided to use the points which the perimeter of the flood extent (flood extent outline) intersects with the roads as origin points where people can evacuate from the flood. This is because the road network within the flood area would be destroyed and flooded, and therefore unable to be used for evacuation.
+
+Thus in this scenario, we assumed that remaining survivors of the flood would be able to escape to the edge of the flood extent and use the undestroyed road networks outside of the damaged area to evacuate to shelters and hospitals. Using the Roads data from Copernicus ESMR, we were thus able to ascertain which roads outside the flood extent could be used, which was all of them as the destroyed and damaged roads were mostly within the flood extent.
+
+![](images/image115.jpg)
+
+# Clipping Roads outside of Flood Extent
+
+From menu bar, select Vector → Geoprocessing Tools → Difference
+
+![](images/image33.jpg)
+
+Difference dialogue window appears. 
+
+-   Under Input layer, select emsr_roads (the GRA version)
+
+-   For Overlay layer, select flood_extent
+
+-   Click on Run.
+
+![](images/image64-01.jpg)
+
+Map window should now look like this with a temporary Difference layer created. Save this layer into Geopackage, naming it emsr_roads_outside_flood.
+
+![](images/image72.jpg)
+
+# Converting Flood Extent Polygon to a Line layer 
+
+From the menu bar, select Processing → Toolbox.
+
+-   Type \'polygon to lines\' in the search bar
+
+-   Select Polygons to lines under Vector geometry
