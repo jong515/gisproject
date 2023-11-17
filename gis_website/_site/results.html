@@ -93,10 +93,33 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./proposal.html" rel="" target="">
  <span class="menu-text">Proposal</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./methodology.html" rel="" target="">
- <span class="menu-text">Methodology</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-methodology" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Methodology</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-methodology">    
+        <li>
+    <a class="dropdown-item" href="./dataprep.html" rel="" target="">
+ <span class="dropdown-text">Data Preparation</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./before.html" rel="" target="">
+ <span class="dropdown-text">Before Scenario</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./during.html" rel="" target="">
+ <span class="dropdown-text">During Scenario</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./after.html" rel="" target="">
+ <span class="dropdown-text">After Scenario</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./resupply.html" rel="" target="">
+ <span class="dropdown-text">Resupply to Shelters and Hospitals</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item">
     <a class="nav-link active" href="./results.html" rel="" target="" aria-current="page">
  <span class="menu-text">Results and Discussion</span></a>
@@ -136,6 +159,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
   <li><a href="#future-work-and-recommendations" id="toc-future-work-and-recommendations" class="nav-link" data-scroll-target="#future-work-and-recommendations">Future Work and Recommendations</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
     </div>
@@ -165,20 +189,20 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="before-scenario">Before Scenario</h3>
 <section id="evacuation-time" class="level4">
 <h4 class="anchored" data-anchor-id="evacuation-time">Evacuation Time</h4>
-<p>From our findings, The routes range from a distance of <strong>2.3km to 4.8km</strong>. Assuming a 4-6 km/h walking speed for people, it would take <strong>less than half an hour to an hour</strong> for people to evacuate <strong>by foot</strong>.</p>
+<p>From our findings, the routes range from a distance of <strong>2.3km to 4.8km</strong>. Assuming a 4-6 km/h walking speed for people, it would take <strong>less than half an hour to an hour</strong> for people to evacuate <strong>by foot</strong>.</p>
 <p><strong>By vehicle</strong>, it takes about <strong>4 minutes</strong> 5 seconds <strong>to 6 minutes</strong> 12 seconds to evacuate, using the speed assumptions (50km/h for motor roads, 15km/h for service and unclassified roads, 5km/h for pedestrian roads) and not accounting for delays due to traffic congestion.&nbsp;</p>
 <p>Roughly multiplying the time taken by 10, we get an estimate of <strong>around 41-62 minutes for a person to walk</strong>. This estimate is slightly <strong>higher</strong> than that of the previous walking duration estimation, but may be more accurate in <strong>accounting for fatigue or congestion, or vulnerable populations</strong> like children, elderly and people with disabilities.</p>
 <p><br>
-These routes are still reasonable considering the <strong>5-8 hours heads-up</strong> (Ebrahim, 2023; Eddeb &amp; Mhawach, 2023; BBC News, 2023) the residents received - that they have <strong>enough time to get home</strong> to find essential emergency items or family members <strong>and evacuate</strong>.</p>
+These routes are still reasonable considering the <strong>5-8 hours heads-up</strong> the residents received - that they have <strong>enough time to get home</strong> to find essential emergency items or family members <strong>and evacuate</strong>.</p>
 </section>
 <section id="shelter-overcrowding" class="level4">
 <h4 class="anchored" data-anchor-id="shelter-overcrowding">Shelter Overcrowding</h4>
 <p>As seen in the map, the <strong>python algorithm</strong> was successful in <strong>assigning neighbourhood centroids to maximise the use of shelters</strong>. The <strong>neighbourhood</strong> centroids <strong>closest to the perimeter of the flood extent</strong> are <strong>assigned to the furthest shelters</strong> as expected, allowing them to <strong>escape earlier to reduce congestion</strong> with the people deeper within in the flood extent.</p>
 <p>As mentioned, the main downside of having assigned routes is that some routes may experience <strong>congestion due to traffic bottlenecks</strong> (multiple neighbourhoods of people are passing through the same road). However, this can be <strong>mitigated</strong> as the <strong>locals would have knowledge of the alternative routes in the city</strong> in case of congestion.</p>
-<p>As measured in 3.2.4.7, the <strong>combined area of the shelters</strong> outside of the flood extent (used in before and during scenarios) is <strong>3 hectares</strong> though the <strong>total area of the residential buildings</strong> is <strong>50 hectares</strong>. Though this <strong>does not account for</strong> the <strong>number of storeys each building has</strong>, it is a sign that the existing shelters may not be sufficient to hold all evacuees.</p>
-<p>We divide the current area of shelters (assuming at least 1 storey of free space) 33,251m2 by UNHCR's (2019) standard of 3.5m2 per person, to get an <strong>estimate of a capacity of more than 9,500 people</strong>, which pales in comparison to the 24,500 displaced residents figure (UNOCHA, 2023).This <strong>could be sufficient if the shelters have almost 3 storeys of usable space</strong> (85,750m2), but we currently <strong>lack data on building heights</strong>.&nbsp;</p>
+<p>As measured, the <strong>combined area of the shelters</strong> outside of the flood extent (used in before and during scenarios) is <strong>3 hectares</strong> though the <strong>total area of the residential buildings</strong> is <strong>50 hectares</strong>. Though this <strong>does not account for</strong> the <strong>number of storeys each building has</strong>, it is a sign that the existing shelters may not be sufficient to hold all evacuees.</p>
+<p>We divide the current area of shelters (assuming at least 1 storey of free space) 33,251m2 by UNHCR’s standard of 3.5m<sup>2</sup> per person, to get an <strong>estimate of a capacity of more than 9,500 people</strong>, which pales in comparison to the 24,500 displaced residents figure.This <strong>could be sufficient if the shelters have almost 3 storeys of usable space</strong> (85,750m<sup>2</sup>), but we currently <strong>lack data on building heights</strong>.&nbsp;</p>
 <p><br>
-Cross-referencing the UN’s 21st September update (UNOCHA, 2023), <strong>in reality only 6 schools were used</strong> as designated sites to hold evacuees. Though we are <strong>unsure of UN's considerations</strong> in selecting the holding sites, our maps present a <strong>possibility of using mosques and hotels as shelters to accommodate more evacuees</strong> and save more lives. In the event that our solution remains insufficient, people could also move out of Derna to <strong>nearby cities to escape</strong>, as the UNOCHA report had noted. The potential lack of <strong>shelter capacity should not stop people from evacuating</strong> before the flood.</p>
+Cross-referencing the UN’s 21st September update, <strong>in reality only 6 schools were used</strong> as designated sites to hold evacuees. Though we are <strong>unsure of UN’s considerations</strong> in selecting the holding sites, our maps present a <strong>possibility of using mosques and hotels as shelters to accommodate more evacuees</strong> and save more lives. In the event that our solution remains insufficient, people could also move out of Derna to <strong>nearby cities to escape</strong>, as the UNOCHA report had noted. The potential lack of <strong>shelter capacity should not stop people from evacuating</strong> before the flood.</p>
 </section>
 </section>
 <section id="during-scenario" class="level3">
@@ -190,38 +214,60 @@ Cross-referencing the UN’s 21st September update (UNOCHA, 2023), <strong>in re
 <p>Most of the <strong>shortest paths also lead to the same few shelters</strong>. This makes sense since those shelters are closest in proximity to the damaged flood area.</p>
 <p><img src="images/image83.jpg" class="img-fluid"></p>
 <p><img src="images/image80.jpg" class="img-fluid"></p>
-<p>Upon further analysis, most of the shortest paths from the start points on the left side of the flood extent lead to three of the nearest shelters (circled in yellow) as shown in Zoom-in Map 1 inserted above. Many shelters further away from the flood extent are not included in the evacuation map's shortest path to safety. Zoom-in Map 2 also reveals that some shelters (circled in green), though in close proximity to other surrounding shelters, have no path mapped to them. This could possibly be due to the affected road network which the OD Matrix algorithm could not account for. This means that <strong>many shelters will be underutilised if all evacuees choose to go to the nearest shelter</strong>.&nbsp;</p>
+<p>Upon further analysis, most of the shortest paths from the start points on the left side of the flood extent lead to three of the nearest shelters (circled in yellow) as shown in Zoom-in Map 1 inserted above. Many shelters further away from the flood extent are not included in the evacuation map’s shortest path to safety. The second map also reveals that some shelters (circled in green), though in close proximity to other surrounding shelters, have no path mapped to them. This could possibly be due to the affected road network which the OD Matrix algorithm could not account for. This means that <strong>many shelters will be underutilised if all evacuees choose to go to the nearest shelter</strong>.&nbsp;</p>
 <p>Moreover, this evacuation map is generated under the <strong>assumption that people will be</strong> using <strong>walking</strong> as the primary means to travel from a start point to a shelter, as it is <strong>unlikely that vehicles could be used for transportation during the flood, especially starting from the flood extent</strong>. In reality, it is possible that <strong>there may be alternative routes, such as desire paths</strong>, that are more intuitive and efficient for people to use for evacuation to the first shelter they see.&nbsp;</p>
-<p>Although the <strong>shortest paths</strong> show the general routes that would be <strong>most convenient</strong> for people to use for evacuation to their nearest shelters, this <strong>might lead to overcrowding</strong> in those few particular shelters. Therefore, it is <strong>recommended that people travel to the next nearest shelter</strong> if the 'Shortest Path' leads them to a shelter that has already maximised its capacity, using 'All Routes to Shelters'.&nbsp;</p>
+<p>Although the <strong>shortest paths</strong> show the general routes that would be <strong>most convenient</strong> for people to use for evacuation to their nearest shelters, this <strong>might lead to overcrowding</strong> in those few particular shelters. Therefore, it is <strong>recommended that people travel to the next nearest shelter</strong> if the ‘Shortest Path’ leads them to a shelter that has already maximised its capacity, using ‘All Routes to Shelters’.&nbsp;</p>
 </section>
 <section id="evacuation-to-hospitals" class="level4">
 <h4 class="anchored" data-anchor-id="evacuation-to-hospitals">Evacuation to Hospitals</h4>
 <p><img src="images/image47.png" class="img-fluid"></p>
 <p>The map created shows <strong>all possible routes</strong> from start points <strong>from the edge of the flood extent (black paths) to all medical centres</strong> - hospitals - outside the flood extent. It also shows the <strong>shortest routes (red paths)</strong> from each specific start point to their nearest hospital. The route with the shortest distance from a start point to a hospital is <strong>818.28 metres</strong> while the route with the longest distance from a start point to a hospital is <strong>4427.44 metres</strong>. This shows that some start points are considerably closer in proximity to a hospital than others.</p>
 <p><br>
-The map also shows that there are <strong>only three hospitals</strong> which people can evacuate to for medical care outside the flood extent. As seen from Zoom-in Map 3 inserted below, all routes to the nearest hospital from start points on the <strong>left side of the flood extent</strong> are also all the shortest paths to the hospital, as there is <strong>only one hospital in that vicinity</strong>. This suggests <strong>potential overcrowding</strong> in this hospital, and <strong>people who are severely injured during the flood</strong> and attempting to evacuate from start points nearer the coastline <strong>are likely unable to travel to the hospital on foot unless there are emergency ambulances deployed to help them.</strong></p>
+The map also shows that there are <strong>only three hospitals</strong> which people can evacuate to for medical care outside the flood extent. As seen from the map inserted below, all routes to the nearest hospital from start points on the <strong>left side of the flood extent</strong> are also all the shortest paths to the hospital, as there is <strong>only one hospital in that vicinity</strong>. This suggests <strong>potential overcrowding</strong> in this hospital, and <strong>people who are severely injured during the flood</strong> and attempting to evacuate from start points nearer the coastline <strong>are likely unable to travel to the hospital on foot unless there are emergency ambulances deployed to help them.</strong></p>
 <p><img src="images/image117.jpg" class="img-fluid"></p>
 <p><img src="images/image84.jpg" class="img-fluid"></p>
 <p>The map above indicates that most of the routes to hospitals from start points on the right side of flood extent go to the hospital nearest to the flood extent. This is due to the <strong>skewed distribution of hospital locations</strong> as the last hospital is situated far away from the start points.&nbsp;</p>
 <p><br>
 Due to the scarcity of medical centres, it is <strong>possible that these hospitals will be overcrowded and their manpower and supplies exhausted</strong> to tend to patients. As such, it is <strong>recommended that field hospitals or mobile clinics be deployed to remote areas nearer to the flood extent or to evacuation centres</strong> with people who require the most medical care.</p>
 </section>
+<section id="medical-accessibility" class="level4">
+<h4 class="anchored" data-anchor-id="medical-accessibility">Medical Accessibility</h4>
+<p>We learnt from team 8's poster showcase to consider the accessibility to hospitals from the shelters. We consider only <strong>vehicle timings</strong> as we realise <strong>the shortest paths may be too far to walk by foot</strong>, especially for someone who is injured. Hence, we <strong>assume that the injured are able to call an ambulance</strong> from the hospital to fetch them. The time taken to send them to the hospital would be <strong>double of the time spent on the route</strong> as the <strong>ambulance has to go back and forth</strong>: leave the hospital to fetch them, then send them to the hospital.&nbsp;</p>
+<p><img src="images/image74.png" class="img-fluid"></p>
+<p>The <strong>most likely sickness</strong> that could occur at <strong>shelters</strong> are likely to be <strong>diarrhoea</strong> from damaged water supplies, or <strong>infections</strong>, hence we consider the <strong>11 minutes maximum to be reasonable.</strong> There are also likely other people with phones to make timely calls for ambulances, and <strong>vehicles of other evacuees</strong> that would hasten sending the sick to the hospitals <strong>in less than 6 minutes</strong> (one-way journey instead of back-and-forth).</p>
+<p><img src="images/image16.png" class="img-fluid"></p>
+<p><img src="images/image31.png" class="img-fluid"></p>
+<p>We consider the <strong>15 minutes maximum time</strong> to dispatch an ambulance and fetch the injured people from the flood extent <strong>reasonable</strong>, though we note <strong>limitations</strong> such as the possibility of the injured <strong>not having a working phone</strong> with them, or <strong>having to walk up to 379 metres</strong> to the nearest startpoint with their injuries <strong>after having escaped the flood</strong>.</p>
+<p>Also, we <strong>used a different set of road networks</strong> from the <strong>shortest path analysis</strong> in the during scenario (from startpoints to shelters and hospitals). We used OSM roads as it had information on road types (for speeds) and directions to run out <strong>fastest time path analysis</strong>, compared to the EMSR roads for shortest distance analysis. As such, there were <strong>discrepancies</strong> where all 60 start points were accessible by EMSR roads but only 46 for OSM roads network. As such, our fastest path analysis was <strong>unable to account for 14 of the startpoints</strong>.</p>
+</section>
 </section>
 <section id="after-scenario" class="level3">
 <h3 class="anchored" data-anchor-id="after-scenario">After Scenario</h3>
 <p>For the logistical and water resupplies, we decided to map the <strong>shortest path</strong> in order to ensure that any <strong>people returning back to their homes</strong> will have sufficient resources and supplies. The <strong>shelters and hospitals would likely be overcrowded</strong>, and people will want to return home as well. In the event of a post-flood, we want to ensure that those residents returning home have <strong>sufficient supplies and proper water resources</strong>. Hence, we mapped the shortest, most accessible routes for both resupplies using the Shortest Path analysis function.&nbsp;</p>
-<p>We found that there were some centroid points where there weren’t any networks/paths found to lead to it from the starting point. This is due to the <strong>unavailability of roads directly to that specific point</strong>, hence for those points we can assume that the <strong>resupplies needed for that area can be received from the nearest point to it where the possible routes end</strong> instead. Given the numerous centroids, and the many specific paths provided by the analysis, we can still use these networks to resupply even if there is not a specific route directly connected to it.<br>
-For a lot of the paths, we noticed that a <strong>few of the paths would diverge</strong> from a similar starting point, before heading towards the centroids.</p>
+<p>We found that there were some centroid points where there weren’t any networks/paths found to lead to it from the starting point. This is due to the <strong>unavailability of roads directly to that specific point</strong>, hence for those points we can assume that the <strong>resupplies needed for that area can be received from the nearest point to it where the possible routes end</strong> instead. Given the numerous centroids, and the many specific paths provided by the analysis, we can still use these networks to resupply even if there is not a specific route directly connected to it.</p>
+<p>For a lot of the paths, we noticed that a <strong>few of the paths would diverge</strong> from a similar starting point, before heading towards the centroids.</p>
 <p><img src="images/Screenshot 2023-11-15 225259.png" class="img-fluid"></p>
 <p><img src="images/Screenshot 2023-11-15 225236.png" class="img-fluid"></p>
-<p>An example is these 2 corners shown, where there were multiple paths diverging depending on the centroids they are heading towards. For suppliers (in the future to centroids, shelters and hospitals), they <strong>could place and store resupplies near these diverging points</strong>. The trucks and vehicles would then be able to pick up more supplies from these areas on the way to their destination points. It would <strong>decentralise any resupply points</strong> and <strong>reduce the potential load of the vehicles carrying supplies</strong> from these points that are very far away from the city. Hence, <strong>potential resupplies can be first dropped off at these points, in larger quantities, before being picked up by other vehicles</strong> in the area in order to be sent to the destinations. This would ensure <strong>faster resupplies</strong>, as vehicles would be able to move faster, <strong>more frequently</strong> and more efficiently to their destinations.</p>
+<p>An example is these 2 corners shown, where there were multiple paths diverging depending on the centroids they are heading towards. For suppliers (in the future to centroids, shelters and hospitals), they <strong>could place and store resupplies near these diverging points</strong>. The trucks and vehicles would then be able to pick up more supplies from these areas on the way to their destination points. It would <strong>decentralise any resupply points</strong> and <strong>reduce the potential load of the vehicles carrying supplies</strong> from these points that are very far away from the city. Hence, <strong>potential resupplies can be first dropped off at these points, in larger quantities, before being picked up by other vehicles</strong> in the area in order to be sent to the destinations. This would ensure <strong>faster resupplies</strong>, as vehicles would be able to <strong>move faster, more frequently and more efficiently</strong> to their destinations.&nbsp;</p>
 </section>
 <section id="resupplies-outside-flood-extent" class="level3">
 <h3 class="anchored" data-anchor-id="resupplies-outside-flood-extent">Resupplies Outside Flood Extent</h3>
 <p>We also <strong>assumed that people will attempt to return to their homes in the aftermath of the flood</strong> and thereby planned out logistical and water <strong>resupply routes to the residential areas</strong> that had been affected by the flood. However, we also recognise that <strong>many survivors might also choose to remain in the shelters until their homes are restored</strong> into their original conditions, and <strong>hospitals may require more supplies than usual</strong>. Hence, we also mapped the logistical and water resupply to shelters and hospitals.&nbsp;</p>
-<p>Though <strong>not presented in our physical poster</strong>, we mapped out the <strong>supply routes to hospitals and shelters</strong> outside the flood extent. These utilise <strong>roads that have not been damaged by the floods</strong>, and can be used in the <strong>Before Flood and After Flood</strong> scenarios. <strong>As some routes cross the flood extent</strong>, they are not advisable for use in the During Flood scenario.</p>
+<p>Though <strong>not presented in our physical poster</strong>, we mapped out the <strong>supply routes to hospitals and shelters</strong> outside the flood extent. These utilise <strong>roads that have not been damaged by the&nbsp; floods</strong>, and can be used in the <strong>Before Flood and After Flood</strong> scenarios. <strong>As some routes cross the flood extent</strong>, they are not advisable for use in the During Flood scenario.</p>
 <p>While the After Flood scenario focused on the likely case of providing aid to people who moved back home after the flood has subsided, these maps look into <strong>potential use cases of readying the shelters and hospitals before the flood, and resupplying them in the first few weeks after the flood</strong>. Supplies in the <strong>Before Flood scenario</strong> should be enough to <strong>last people for</strong> 2-3 days for the <strong>duration of the flood</strong>, while supplies in the After Flood scenario may come as and when replenishments are required.</p>
-<p>The water and logistics <strong>resupply routes during the flood take up to 3 hours</strong>, and less than <strong>2 hours in the before and after scenario</strong>.</p>
+<p><br>
+The water and logistics <strong>resupply routes during the flood take up to 3 hours</strong>, and less than <strong>2 hours in the before and after scenario</strong>.</p>
+<section id="before-and-after-resupply-maps" class="level4">
+<h4 class="anchored" data-anchor-id="before-and-after-resupply-maps">Before and After Resupply Maps</h4>
+<p><img src="images/image157.png" class="img-fluid"></p>
+<p><img src="images/image91.png" class="img-fluid"></p>
+<p><img src="images/image145.png" class="img-fluid"></p>
+<p><img src="images/image65.png" class="img-fluid"></p>
+<p><img src="images/image18.png" class="img-fluid"></p>
+<p><img src="images/image100.png" class="img-fluid"></p>
+<p><img src="images/image123.png" class="img-fluid"></p>
+<p><img src="images/image126.png" class="img-fluid"></p>
+</section>
 </section>
 </section>
 <section id="discussion" class="level2">
@@ -229,11 +275,11 @@ For a lot of the paths, we noticed that a <strong>few of the paths would diverge
 <p>The residents of Derna were warned of the storm <strong>5-8 hours</strong> before the flood, though they received conflicting instructions. Our <strong>Before Flood</strong> scenario constructs a possible <strong>assignment of evacuation routes per neighbourhood</strong>. As a back-up for <strong>those who did not evacuate in time</strong>, they can refer to the <strong>During Flood</strong> scenario map to <strong>find the nearest dry road and shelter</strong>. As the supplies in the shelters are used and the supplies in the flooded neighbourhoods perish, our <strong>After Flood scenario</strong> maps the <strong>supply routes to the flooded neighbourhoods</strong> where we expect most people to return to. We also mapped <strong>resupply routes to the hospitals and shelters</strong> relevant to the three stages of the disaster.</p>
 <p>As the <strong>10th September flood in Derna was the one of worst possible</strong> flooding due to the simultaneous double dam collapse and hurricane (as it is the 2nd worst recorded dam failure so far (Wikipedia, 2023) and worse than Libyan major floods seen in 1960-2000 (Ashoor, 2022; Motamedi, 2023)) we suggest the construction of evacuation and medical centres in the city. Our <strong>maps above reveal the danger of overcrowding</strong> in the existing shelters and hospitals in Derna due to the <strong>shortage of such emergency facilities</strong>. In order to alleviate any overcrowding, we <strong>recommend more shelters to be set up or designated</strong> and <strong>hospitals to be built</strong> in the city, especially in remote areas which are currently furthest away from existing facilities. For evacuation centres, this can be done by <strong>finding other buildings to repurpose</strong>, in particular those with a larger capacity and suitable infrastructure to house more people. In the meantime, if a similar natural disaster occurs again and there are insufficient shelters and hospitals, <strong>temporary emergency services can be set up in inaccessible areas</strong> that lack adequate road networks and infrastructure.&nbsp;</p>
 <p><br>
-In most of our maps (except those using OSM that set direction of roads in the parameters), we assumed that <strong>during an emergency</strong>, <strong>all roads can be used as two-way</strong> streets which allow vehicles to travel in both directions, to support the transportation of supplies to and fro origin and destination points. However, there is a chance that this may increase the risk of traffic accidents.</p>
+In most of our maps (those we did shortest path analysis on), we assumed that <strong>during an emergency</strong>, <strong>all roads can be used as two-way</strong> streets which allow vehicles to travel in both directions, to support the transportation of supplies to and fro origin and destination points. However, there is a chance that this may increase the risk of traffic accidents.</p>
 </section>
 <section id="future-work-and-recommendations" class="level2">
 <h2 class="anchored" data-anchor-id="future-work-and-recommendations">Future Work and Recommendations</h2>
-<p>For future work recommendations, we could consider <strong>mapping out possible routes from shelter to shelter</strong>. As the shelters nearest to the flood extent will likely be <strong>congested and overcrowded</strong> with a large number of evacuees, we suggest they <strong>move to the next nearest shelter for safety</strong>. However, our current map model – in the During Flood Scenario – only shows routes from the start points from the edge of the flood to the shelters, and not alternative routes from overcrowded shelters to neighbouring shelters. We could also <strong>map the shelters</strong> to hospitals in case the evacuees are injured or ill, then <strong>study if there are enough hospitals to meet the demand</strong>.</p>
+<p>For future work recommendations, we could consider <strong>mapping out possible routes from shelter to shelter</strong>. As the shelters nearest to the flood extent will likely be <strong>congested and overcrowded</strong> with a large number of evacuees, we suggest they <strong>move to the next nearest shelter for safety</strong>. However, our current map model – in the During Flood Scenario – only shows routes from the start points from the edge of the flood to the shelters, and not alternative routes from overcrowded shelters to neighbouring shelters.&nbsp;</p>
 <p>Other future work recommendations include:</p>
 <ul>
 <li><p>Collect data on the <strong>capacity of the shelters</strong>.</p></li>
@@ -249,8 +295,13 @@ In most of our maps (except those using OSM that set direction of roads in the p
 <li><p><strong>Rank shelters</strong> by capacity and proximity to hospital/supplies to prioritise getting people to the better shelters. (Learning point from group 8)</p></li>
 <li><p>Consider the <strong>population density</strong> within each neighbourhood in the flood extent. (Learning point from group 3 and 8)</p></li>
 <li><p><strong>Propose</strong> potential sites to build <strong>future shelters</strong>. (Learning point from group 2)</p></li>
-<li><p><strong>Proposed points</strong> (amongst flood edge points or shelters) to <strong>deploy ambulances to or set up field hospitals at</strong>.</p></li>
+<li><p><strong>Propose points</strong> (amongst flood edge points or shelters) to <strong>deploy ambulances to or set up field hospitals at</strong>.</p></li>
 </ul>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In conclusion, we appreciated the opportunity to be able to <strong>use QGIS for a real-life</strong> use case, <strong>studying a recent disaster that</strong> would serve as a warning for future generations to come. We demonstrated a <strong>time-based scenario</strong> perspective of working on the problem, <strong>catering to differing needs (evacuation and supplies)</strong> and behaviour at various stages of the disaster management. Though our <strong>evacuation routes are of reasonable durations</strong> that can save lives, we acknowledge <strong>challenges such as congestion and overcrowding</strong>. These can be mitigated by <strong>using alternative routes</strong> (using local knowledge of roads or OD matrix), <strong>expanding the list of the potential shelter sites</strong>, and further investigations into <strong>building capacities</strong>.</p>
+<p>Those who require <strong>medical help may require field hospitals or ambulance fetching</strong> as it is unlikely for them to make it to the hospitals on their own during the flood. Ways to <strong>improve the efficiency of the supply routes</strong> include <strong>storing resupplies near where roads diverge</strong>, and <strong>combining multiple trips</strong>. <strong>Future work</strong> could also study <strong>ranking shelters by capacity and accessibility</strong> to amenities, and <strong>proposing sites to build future shelters or medical amenities</strong>.</p>
 
 
 </section>

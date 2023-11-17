@@ -11,8 +11,14 @@ website:
         text: Overview
       - href: proposal.qmd
         text: Proposal
-      - href: methodology.qmd
-        text: Methodology
+      - text: Methodology
+        menu: 
+        - dataprep.qmd
+        - before.qmd
+        - during.qmd
+        - after.qmd
+        - resupply.qmd
+
       - href: results.qmd
         text: Results and Discussion
       - href: lessons.qmd
