@@ -12,19 +12,19 @@ For derna_buildings,
 
 -   Right click the layer and open its Attribute table.
 
--   Open \'Select by Expression\'.
+-   Open 'Select by Expression'.
 
--   Enter the function  "area" is null and click \'Select Features\', then \'Close\' the window.
+-   Enter the function  "area" is null and click 'Select Features', then 'Close' the window.
 
 -   Toggle editing mode on, then delete the selected features.
 
--   We then navigate to the layer\'s properties window, under the Fields tab. 
+-   We then navigate to the layer's properties window, under the Fields tab. 
 
 -   We delete all fields except for fid and area.
 
 -   Toggle editing mode off and save the changes.
 
-For the routes under the \'Resupply to shelters and hospital (During)\', \'Resupply to shelters and hospital (Before and After)\', \'After (Resupply to flooded neighbourhoods)\'  groups in the above picture, we delete all the fields except for fid, start, end and cost.
+For the routes under the 'Resupply to shelters and hospital (During)', 'Resupply to shelters and hospital (Before and After)', 'After (Resupply to flooded neighbourhoods)'  groups in the above picture, we delete all the fields except for fid, start, end and cost.
 
 -   Double click the layer to open its properties, then navigate to Fields.
 
@@ -40,7 +40,7 @@ For the routes under the \'Resupply to shelters and hospital (During)\', \'Resup
 
 -   Repeat for the other layers in the layer group.
 
-For waterResupplyToSheltersDuring1/2, we rename it to remove the word \'Resupply\' for consistency with the other similar layers.
+For waterResupplyToSheltersDuring1/2, we rename it to remove the word 'Resupply' for consistency with the other similar layers.
 
 -   Navigate to the geopackage in the browser panel, then click on the dropdown to display all its layers.
 
@@ -48,7 +48,7 @@ For waterResupplyToSheltersDuring1/2, we rename it to remove the word \'Resupply
 
 ![](images/image113.png)
 
--   Click on \'Rename layer\' and remove the word \'Resupply\'.
+-   Click on 'Rename layer' and remove the word 'Resupply'.
 
 -   Repeat for waterResupplyToSheltersDuring2.
 
@@ -58,13 +58,13 @@ For the layers in the Before and During layer group,
 
     -   Right click the layer and open its Attribute table.
 
-    -   Open \'Select by Expression\'.
+    -   Open 'Select by Expression'.
 
-    -   Enter the function  "total_cost" is null and click \'Select Features\', then \'Close\' the window.
+    -   Enter the function  "total_cost" is null and click 'Select Features', then 'Close' the window.
 
     -   Toggle editing mode on, then delete the selected features.
 
--   We then navigate to the layer\'s properties window, under the Fields tab. 
+-   We then navigate to the layer's properties window, under the Fields tab. 
 
 -   We delete all but 4 fields: fid, origin_id, destination_id, total_cost/shortest_path.
 
