@@ -2,6 +2,16 @@
 title: "After Flood Scenario"
 ---
 
+# Setting the Scene
+
+We will refer to the OpenStreetMap as a gauge of where the locations are outside of the hexagon layer. 
+
+Since the airports and the water plants are quite a distance away from the city, we will use the osm roads to map out the shortest path they will take to a chosen location on the highways leading into the city. Afterwhich, we will use the EMSR GRA transportationL roads to map the shortest path from those locations to the flood neighbourhood centroids, since those roads are more accurate in terms of damage and usability.
+
+## Getting airport points
+
+We will use osm_transport_a(polygon),since the point files don't have Martuba airport we will be using the polygons instead.
+
 ![](images/image78.png)
 
 ![](images/image128.png)
