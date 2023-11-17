@@ -152,7 +152,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#summary-flow-chart" id="toc-summary-flow-chart" class="nav-link active" data-scroll-target="#summary-flow-chart">Summary Flow Chart</a></li>
   <li><a href="#data-download" id="toc-data-download" class="nav-link" data-scroll-target="#data-download">Data Download</a></li>
-  <li><a href="#data-preparation-and-cleaning" id="toc-data-preparation-and-cleaning" class="nav-link" data-scroll-target="#data-preparation-and-cleaning">Data Preparation and Cleaning</a></li>
+  <li><a href="#data-preparation-and-cleaning" id="toc-data-preparation-and-cleaning" class="nav-link" data-scroll-target="#data-preparation-and-cleaning">Data Preparation and Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#health-facilities" id="toc-health-facilities" class="nav-link" data-scroll-target="#health-facilities">Health Facilities</a></li>
+  <li><a href="#shelters" id="toc-shelters" class="nav-link" data-scroll-target="#shelters">Shelters</a></li>
+  <li><a href="#centroids" id="toc-centroids" class="nav-link" data-scroll-target="#centroids">Centroids</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -183,12 +188,181 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="data-download" class="level1">
 <h1>Data Download</h1>
+<ul>
+<li>Analytical hexagon from <a href="https://smt201-ay2023-24t1.netlify.app/gisproject#the-data">SMT201-AY2023-24T1 - GIS Project</a> for extent of study area.</li>
+<li><a href="https://download.geofabrik.de/africa/libya.html">OpenStreetMap (OSM) of Libya</a> (as of 23 oct 2023 unless otherwise indicated)
+<ul>
+<li><p><a href="https://download.geofabrik.de/osm-data-in-gis-formats-free.pdf">Metadata</a></p></li>
+<li><p>OSM Roads (download both 1 Sep 23 and 23 Oct 23)</p></li>
+<li><p>OSM Points of Interests (points): for shelters and desalination plants (waterworks)</p></li>
+<li><p>OSM Places of Worship (points): for shelters</p></li>
+<li><p>OSM_transport_a(polygon): for airports</p></li>
+<li><p>OSM Landuse_a</p></li>
+</ul></li>
+</ul>
+<p>HumData <a href="https://data.humdata.org/dataset/flood-impact-assessment-in-al-tamimi-town-derna-governorate-east-province-libya">Flood Impact Assessment</a>’s FloodExtent (first of the selection shown in the first picture, pink polygon in the second picture).</p>
+<p><img src="images/image6.jpg" class="img-fluid"></p>
+<p><img src="images/image56.jpg" class="img-fluid"></p>
+<ul>
+<li><p><a href="https://data.humdata.org/dataset/hotosm_lby_health_facilities">HumData Health Facilities</a> (polygons) → Hospitals</p>
+<ul>
+<li>Don’t include clinics as they overlap with hospitals, the other is within the flood extent&nbsp;&nbsp;</li>
+</ul></li>
+<li><p><a href="https://rapidmapping.emergency.copernicus.eu/EMSR696/download">Copernicus EMSR roads</a> to determine usable roads during/after the flood.</p>
+<ul>
+<li>Download the “AOI base layers” (aka BLP, used in the before scenario) and “Crisis Information” (aka GRA, used in the during and after scenario) under Derna’s tab.</li>
+</ul></li>
+<li><p><a href="https://map.openaerialmap.org/#/-18.720703125,18.47960905583197,3?_k=z5qauk">Satellite data from OpenAerialMap</a></p>
+<ul>
+<li><p><a href="https://map.openaerialmap.org/#/22.679643630981445,32.76151084292581,13/square/122102220201/65029d220906de000167e685?_k=85b9od">13 September 2023</a></p></li>
+<li><p>From the main page, zoom in to Libya and to Derna city. Afterwards, select the relevant date(latest data as of creation of report was 13 September 2023). Then download accordingly.</p></li>
+</ul></li>
+</ul>
 </section>
 <section id="data-preparation-and-cleaning" class="level1">
 <h1>Data Preparation and Cleaning</h1>
-<p>From the downloaded data,</p>
+<p>From the downloaded data:</p>
+<ul>
+<li><p>Import the Analytical Hexagon of Derna.</p></li>
+<li><p>Import from Humanitarian Data Exchange portal</p>
+<ul>
+<li><p>Import the latest flood extent</p></li>
+<li><p>Import health facilities&nbsp;</p></li>
+</ul></li>
+<li><p>Import from OSM</p>
+<ul>
+<li><p>Points of Interest(poi)</p></li>
+<li><p>Roads</p></li>
+<li><p>Places of Worship(pofw)</p></li>
+</ul></li>
+</ul>
+<section id="health-facilities" class="level2">
+<h2 class="anchored" data-anchor-id="health-facilities">Health Facilities</h2>
+<p>Imported health_facilities_polygon(hospitals)</p>
+<ul>
+<li>Clip by extent using Derna hexagon layer to obtain hospitals in Derna</li>
+<li>Open the attribute table</li>
+<li>Double click to input المستشفى الشاعري الألماني for the feature with null value as its name.&nbsp;</li>
+<li>Untoggle editing mode using the pencil icon to save the changes</li>
+</ul>
+<p>Save to geopackage:</p>
+<p>Health facilities(save as hospitals)</p>
+</section>
+<section id="shelters" class="level2">
+<h2 class="anchored" data-anchor-id="shelters">Shelters</h2>
+<ul>
+<li><p>Import OSM points of interest, and OSM places of worship.&nbsp;</p></li>
+<li><p>From Menu Bar, open Vector → Geoprocessing Tools → Clip&nbsp;</p></li>
+<li><p>Clip each of the two layer using the Derna hexagon layer. Rename them to derna_poi and derna_pofw.</p></li>
+<li><p>Click once on derna_poi, then click on ‘Select by expression’.</p></li>
+<li><p>Type the following expression: “fclass” in ( ‘community_centre’ , ‘school’ , ‘hotel’ , ‘college’ , ‘guesthouse’ )</p></li>
+<li><p>Export Selected Features from derna_poi as evacuation, using the project CRS.</p></li>
+<li><p>From the Menu tab, go to Vector → Geoprocessing tools → Union</p></li>
+<li><p>Select evacuation and derna_pofw as the input and overlay layers. Click ‘Run’, then click ‘Close’ if it ran successfully.</p></li>
+<li><p>Open the attribute table of the temporary union layer.</p></li>
+</ul>
+<p><img src="images/shelters1.png" class="img-fluid"></p>
+<p>Cleaning up the fields</p>
+<ul>
+<li><p>Click on Field Calculator icon</p></li>
+<li><p>Check the ‘Update Existing field’ checkbox.</p></li>
+<li><p>Type the expression coalesce(“field”,“field_2”)e.g.&nbsp;For OSM_ID, coalesce(“osm_id”,“osm_id_2”)</p>
+<ul>
+<li>Use the expression @id for fid</li>
+</ul></li>
+<li><p>Then click ‘OK.’</p></li>
+<li><p>Repeat the above steps for code, fclass, name, and fid.</p></li>
+<li><p>Untoggle the pencil icon to save the changes.</p></li>
+<li><p>Close the attribute table.</p></li>
+<li><p>In the layers panel, double click on the union layer to open its properties.</p></li>
+<li><p>Navigate to fields.</p></li>
+<li><p>Click on the pencil icon to toggle editing mode.</p></li>
+<li><p>Select all the fields that end with “_2.”</p>
+<p><img src="images/shelters2.png" class="img-fluid"></p></li>
+<li><p>Click on the delete field icon <img src="images/shelters3.png" class="img-fluid">.</p></li>
+<li><p>Untoggle the pencil icon to save changes</p></li>
+<li><p>Click ‘Apply’ then ‘OK’ to apply the changes and close the properties window.</p></li>
+<li><p>Open the attribute table</p></li>
+<li><p>Double click to input مسجد موسى بن نُصير (shelter 13) and مسجد ابو بكر الصديق&nbsp; (shelter 11) for the feature with null value as its name. If uncertain which to input, you may compare the location with Google map to find the correct name.&nbsp;</p></li>
+<li><p>Untoggle editing mode using the pencil icon to save the changes</p></li>
+<li><p>Right click on the union layer and export it to the geopackage as shelters, with EPSG 3197. Set geometry as Point.</p></li>
+<li><p>Remove the temporary layer, original evacuation layer, and original pofw layer.</p></li>
+</ul>
+</section>
+<section id="centroids" class="level2">
+<h2 class="anchored" data-anchor-id="centroids">Centroids</h2>
+<p>Data Used:</p>
+<ul>
+<li><p>BLP transportationL (lines) layer from EMSR</p></li>
+<li><p>OSM landuse</p></li>
+<li><p>Flood extent (from humdata)</p></li>
+<li><p>XYZ tiles osm map</p></li>
+</ul>
+<p>Processing → Toolbox. Search for ‘Polygonize’ and select the one under Vector geometry (not the one under GDAL Raster conversion).</p>
+<p><img src="images/c1.png" class="img-fluid"></p>
+<ul>
+<li><p>Set the EMSR BLP transportationL layer as the input</p>
+<p><img src="images/c2-01.png" class="img-fluid"></p></li>
+<li><p>From the menu bar, go to Vector -&gt; Geoprocessing tools -&gt; Clip.</p></li>
+<li><p>Select the polygonised layer as input and flood_extent as overlay layer</p>
+<p><img src="images/c3.png" class="img-fluid"></p></li>
+<li><p>Save as flood extent neighbourhoods, EPSG 3197</p></li>
+<li><p>Remove the temporary clipped and polygon layers</p></li>
+<li><p>Load the gis_osm_landuse_a_free_1 layer</p></li>
+<li><p>Select by Expression:</p>
+<p>“fclass” = ‘residential’.</p></li>
+<li><p>Close the selection window</p></li>
+<li><p>From menu bar, go to Vector → Geoprocessing Tools → Clip</p>
+<p><img src="images/c4.png" class="img-fluid"></p>
+<p><img src="images/c5.png" class="img-fluid"></p>
+<p><img src="images/image111.png" class="img-fluid"></p>
+<p><img src="images/image26.png" class="img-fluid"></p></li>
+<li><p>Install real centroid if you have not.</p></li>
+<li><p>Browse for somewhere to save the output shapefile</p>
+<p><img src="images/image71.png" class="img-fluid"></p></li>
+</ul>
+<p>Notice there are additional silvers we need to remove.</p>
+<ul>
+<li><p>In the main project window, set the clipped layer on top of the OSM XYZ tile background</p></li>
+<li><p>Right click the layer from the layer panel and open attribute table</p></li>
+<li><p>Click on Field Calculator.&nbsp;</p></li>
+<li><p>Create a new field titled area, with decimal field type, using the expression $area</p>
+<p><img src="images/image166.png" class="img-fluid"></p></li>
+<li><p>Sort the field from the smallest to largest area</p></li>
+<li><p>Starting from the smallest area, select the topmost row.</p></li>
+<li><p>Click on the pencil icon to toggle editing mode if it is not already turned on</p>
+<p><img src="images/image129.png" class="img-fluid"></p></li>
+<li><p>In main project panel, right click and click Zoom to selection</p>
+<p><img src="images/image23.png" class="img-fluid"></p></li>
+<li><p>Toggle layer on and off to ensure that the polygon selected does not cover any building on the xyz tiles osm map</p></li>
+<li><p>If the feature highlighted is a silver (does not cover any buildings), delete it, or adjust the vector according to the OSM background</p>
+<p><img src="images/image61.png" class="img-fluid"></p></li>
+<li><p>For the thin strip shown above, we will remove it and assume the people in the 2 half-flooded buildings will go to the polygon near the river to collect their supplies, so the centroid moves northeast where 6 buildings are</p>
+<p><img src="images/image19.png" class="img-fluid"></p></li>
+</ul>
+<p>We hence shorten it to produce this</p>
+<p><img src="images/image119.png" class="img-fluid"></p>
+<ul>
+<li><p>From the menu bar, go to Vector → Geometry tools → Centroids</p>
+<ul>
+<li><p>Set the input layer as the clipped layer you just edited, and check ‘Create centroid for each part’ as some features contain multiple polygons.</p>
+<p><img src="images/image135.png" class="img-fluid"></p></li>
+</ul></li>
+<li><p>Open the centroid layer’s attribute table</p></li>
+<li><p>Open field calculator</p>
+<ul>
+<li><p>Check update existing field, select fid from the field dropdown, use @id as the expression, then click OK.</p>
+<p><img src="images/image152.png" class="img-fluid"></p></li>
+</ul></li>
+<li><p>Untoggle pencil icon editing mode to save the changes</p></li>
+<li><p>Close the attribute table</p></li>
+<li><p>Save to geopackage as flood_neighbourhood_centroids</p></li>
+</ul>
+<p>Here’s what it looks like:</p>
+<p><img src="images/image32.png" class="img-fluid"></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
