@@ -79,3 +79,5 @@ For the layers in the points of interest group,
 -   For suitable_shelters and before_shelters, we save fid, fclass, and name.
 
 For the flood extent layer, we save the fields fid, Area_m^2^ and EventCode.
+
+We remove the intermediate layers from the QGIS project files, and check the data source of the remaining layers are linked to the layers in the final geopackage.

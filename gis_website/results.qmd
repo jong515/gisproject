@@ -70,7 +70,7 @@ Due to the scarcity of medical centres, it is **possible that these hospitals wi
 
 #### Medical Accessibility
 
-We learnt from Group 8\'s poster showcase to consider the accessibility to hospitals from the shelters. We consider only **vehicle timings** as we realise **the shortest paths may be too far to walk by foot**, especially for someone who is injured. Hence, we **assume that the injured are able to call an ambulance** from the hospital to fetch them. The time taken to send them to the hospital would be **double of the time spent on the route** as the **ambulance has to make two trips**: one to depart the hospital to fetch the patients, then the other to send them to the hospital.
+We learnt from Group 8's poster showcase to consider the accessibility to hospitals from the shelters. We consider only **vehicle timings** as we realise **the shortest paths may be too far to walk by foot**, especially for someone who is injured. Hence, we **assume that the injured are able to call an ambulance** from the hospital to fetch them. The time taken to send them to the hospital would be **double of the time spent on the route** as the **ambulance has to make two trips**: one to depart the hospital to fetch the patients, then the other to send them to the hospital.
 
 ![](images/image74.png)
 
@@ -113,19 +113,51 @@ The water and logistics **resupply routes during the flood take up to 3 hours**,
 
 ![](images/image157.png)
 
+**Min:** 25.457km+4.744km=**30.201km**
+
+**Max:** 57.459km+6.847km=**64.306 km**
+
 ![](images/image91.png)
+
+**Min:** 25.457km+4.113km=**29.570km**
+
+**Max:** 57.459km+10.482km=**67.941km**
 
 ![](images/image145.png)
 
+**Min:** 0.190km+4.915km = **5.105km**
+
+**Max:** 70.725km+9.341km = **80.066km**
+
 ![](images/image65.png)
+
+**Min:** 0.190km+2.355km = **2.545 km**
+
+**Max:** 70.725km+10.198km = **80.923km**
 
 ![](images/image18.png)
 
+**Min: 30.413km**
+
+**Max: 130.851km**
+
 ![](images/image100.png)
+
+**Max: 29.523km**
+
+**Min: 131.97km**
 
 ![](images/image123.png)
 
+**Min: 5.192km**
+
+**Max: 114.049km**
+
 ![](images/image126.png)
+
+**Min: 2.369km**
+
+**Max: 115.089km**
 
 ## Discussion
 
