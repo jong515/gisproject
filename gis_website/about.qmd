@@ -8,8 +8,14 @@ On this website, we delve into our work and any insights gleaned from the projec
 
 Additional information about us:
 
-Goh Shao Hsuen(Y2S1, SMT)
-
 Martyn Tok(Y2S1,SMT)
 
+![](images/4.png){width="300"}
+
 Savannah Koh(Y2S1,SMT)
+
+![](images/3.png){width="300"}
+
+Goh Shao Hsuen(Y2S1, SMT)
+
+![](images/2.png){width="300"}
