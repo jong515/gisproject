@@ -8,7 +8,7 @@ Additional information about us:
 
 Martyn Tok(Y2S1,SMT)
 
-![](images/4.png){width="300"}
+![](images/martyn.png){width="300"}
 
 Savannah Koh(Y2S1,SMT)
 
@@ -16,7 +16,7 @@ Savannah Koh(Y2S1,SMT)
 
 Goh Shao Hsuen(Y2S1, SMT)
 
-![](images/2.png){width="300"}
+![](images/qgis2-01.png){width="300"}
 
 Many thanks to our mentor and professor Dr Kam Tin Seong!
 
