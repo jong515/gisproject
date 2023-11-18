@@ -4,10 +4,12 @@ title: "About"
 
 About Us:
 
-Goh Shao Hsuen(Y2S1)    
+On this website, we delve into our work and any insights gleaned from the project. Explore our GitHub Repository by following this link: [GitHub](https://github.com/jong515/gisproject)
 
-Martyn Tok(Y2S1)
+Additional information about us:
 
-Savannah Koh(Y2S1)
+Goh Shao Hsuen(Y2S1, SMT)
 
+Martyn Tok(Y2S1,SMT)
 
+Savannah Koh(Y2S1,SMT)

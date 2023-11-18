@@ -70,7 +70,7 @@ Due to the scarcity of medical centres, it is **possible that these hospitals wi
 
 #### Medical Accessibility
 
-We learnt from team 8\'s poster showcase to consider the accessibility to hospitals from the shelters. We consider only **vehicle timings** as we realise **the shortest paths may be too far to walk by foot**, especially for someone who is injured. Hence, we **assume that the injured are able to call an ambulance** from the hospital to fetch them. The time taken to send them to the hospital would be **double of the time spent on the route** as the **ambulance has to go back and forth**: leave the hospital to fetch them, then send them to the hospital. 
+We learnt from Group 8\'s poster showcase to consider the accessibility to hospitals from the shelters. We consider only **vehicle timings** as we realise **the shortest paths may be too far to walk by foot**, especially for someone who is injured. Hence, we **assume that the injured are able to call an ambulance** from the hospital to fetch them. The time taken to send them to the hospital would be **double of the time spent on the route** as the **ambulance has to make two trips**: one to depart the hospital to fetch the patients, then the other to send them to the hospital.
 
 ![](images/image74.png)
 
