@@ -2,8 +2,6 @@
 title: "About"
 ---
 
-About Us:
-
 On this website, we delve into our work and any insights gleaned from the project. Explore our GitHub Repository by following this link: [GitHub](https://github.com/jong515/gisproject)
 
 Additional information about us:
