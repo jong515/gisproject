@@ -1,3 +1,3 @@
-# gisproject
+# Gisproject
 
-report and whatever can be outside
+Contains the website files 
